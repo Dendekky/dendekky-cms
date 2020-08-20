@@ -5,5 +5,11 @@ module.exports = withSass({
 })
 const withImages = require('next-images')
 module.exports = withImages()
+
+// config to host on netlify
+module.exports = {
+  // Target must be serverless
+  target: 'serverless'
+};
 // const withCss = require('@zeit/next-css')
 // module.exports = withCss({}); 
