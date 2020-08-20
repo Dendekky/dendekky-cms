@@ -17,7 +17,6 @@ import {
 } from "shards-react"
 import { Eye, ChevronDown } from "react-feather"
 import http from "../../services/Apicalls"
-// import { history } from "../../history"
 import LoadingAnimation from "../../components/common/Loading"
 import PageTitle from "../components/common/PageTitle"
 import "../../assets/scss/_agGridStyleOverride.scss"
@@ -74,7 +73,7 @@ const BlogTable = (props) => {
               size="sm"
               className="mr-50"
               onClick={() =>
-                props.history.push(`/admin-draft/${params.data._id}`)
+                props.history.push(`/admin/draft/${params.data._id}`)
               }
             >
               <Eye size={10} />

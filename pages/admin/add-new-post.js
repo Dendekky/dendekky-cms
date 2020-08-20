@@ -15,12 +15,6 @@ import QuillWYSIWYG from "../components/add-new-post/QuillEditor"
 import DropZone from "../components/add-new-post/DropZone"
 import PageTitle from "../components/common/PageTitle"
 import SaveNewDraft from "../components/add-new-post/SaveNewDraft"
-// import { Container, Row, Col } from "shards-react";
-
-// import PageTitle from "../components/common/PageTitle";
-// import Editor from "../components/add-new-post/Editor"
-// import SidebarActions from "../components/add-new-post/SidebarActions";
-// import SidebarCategories from "../components/add-new-post/SidebarCategories";
 
 const AddNewPost = () => {
   const [rawHtml, setRawHtml] = useState("")

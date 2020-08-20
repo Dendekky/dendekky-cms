@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Dispatcher, Constants } from "../../../flux"
+import { Dispatcher, Constants } from "../../../../flux"
 
 class NavbarToggle extends React.Component {
   constructor(props) {

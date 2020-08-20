@@ -41,10 +41,10 @@ const Login = () => {
 
         if (res.status === 200) {
           setIsSubmit(false)
-          router.push("/admin-blog-posts")
+          router.push("/admin/blog-posts")
         }
       })
-      .catch((error) => {
+      .catch(() => {
         setError(true)
         setIsSubmit(false)
         setTimeout(() => {

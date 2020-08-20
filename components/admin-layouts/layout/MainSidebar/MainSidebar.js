@@ -7,7 +7,7 @@ import SidebarMainNavbar from "./SidebarMainNavbar"
 import SidebarSearch from "./SidebarSearch"
 import SidebarNavItems from "./SidebarNavItems"
 
-import { Store } from "../../../flux"
+import { Store } from "../../../../flux"
 
 class MainSidebar extends React.Component {
   constructor(props) {

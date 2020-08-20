@@ -74,7 +74,7 @@ class BlogPosts extends React.Component {
                 <CardBody>
                   <h5 className="card-title">
                     <Link
-                      to={`/admin-post/${post._id}`}
+                      to={`/post/${post._id}`}
                       className="text-fiord-blue"
                     >
                       {post.title}
@@ -118,7 +118,7 @@ class BlogPosts extends React.Component {
                   <h5 className="card-title">
                     <Link
                       to={{
-                        pathname: `/admin-draft/${post._id}`,
+                        pathname: `/draft/${post._id}`,
                         state: {
                           post: { post },
                         },

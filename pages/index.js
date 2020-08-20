@@ -5,7 +5,7 @@ import http from "../services/Apicalls"
 import { Container, Row, Col, Card, CardBody, Badge } from "shards-react"
 // import LoadingAnimation from "../components/common/Loading"
 import PageTitle from "../components/common/PageTitle"
-// import Errors from "../admin/views/Errors"
+// import Errors from "./admin//Errors"
 
 function BlogPosts ({ posts }) {
   const trimmedPostBody = (postBody) => {

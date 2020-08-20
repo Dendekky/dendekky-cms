@@ -53,7 +53,7 @@ function DraftDeleteAction({ id, editDraft, post }) {
                 size="sm"
                 tag={Link}
                 to={{
-                  pathname: `/admin-draft/update/${id}`,
+                  pathname: `/draft/update/${id}`,
                   state: {
                     post: { post },
                   },
