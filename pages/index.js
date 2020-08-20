@@ -1,65 +1,88 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import http from "../services/Apicalls"
+import { Container, Row, Col, Card, CardBody, Badge } from "shards-react"
+// import LoadingAnimation from "../components/common/Loading"
+import PageTitle from "../components/common/PageTitle"
+// import Errors from "../admin/views/Errors"
 
-export default function Home() {
+function BlogPosts ({ posts }) {
+  const trimmedPostBody = (postBody) => {
+    const maxChar = 150
+    if (postBody.length > maxChar) {
+      postBody = postBody.substring(0, maxChar)
+      postBody = `${postBody.substring(
+        0,
+        Math.min(postBody.length, postBody.lastIndexOf(" "))
+      )} . . .`
+    }
+    return postBody
+  }
+
   return (
-    <div className={styles.container}>
+    <Container fluid className="main-content-container px-4">
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" /> 
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      <Row noGutters className="page-header py-4">
+        <PageTitle
+          sm="4"
+          title="Blog Posts"
+          // subtitle="Components"
+          className="text-sm-left"
+        />
+      </Row>
+      <Row>
+        {posts.map((post, idx) => (
+          <Col lg="6" md="6" sm="12" className="mb-4" key={idx}>
+            <Card small className="card-post card-post--1">
+              <div
+                className="card-post__image"
+                style={{ backgroundImage: `url(${post.postImage})` }}
+              >
+                <Badge pill className="card-post__category bg-primary">
+                  {post.category}
+                </Badge>
+              </div>
+              <CardBody>
+                <h5 className="card-title">
+                  <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
+                    <a className="text-fiord-blue">{post.title}</a>
+                  </Link>
+                </h5>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: trimmedPostBody(post.body),
+                  }}
+                />
+                <span className="text-muted">
+                  {new Date(post.updatedAt).toDateString()}
+                </span>
+              </CardBody>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   )
 }
+
+// This function gets called at build time
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts
+  const res = await http.get("/api/post")
+  // const res = await fetch('https://.../posts')
+  const posts = await res.data.posts.reverse()
+
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  }
+}
+
+export default BlogPosts
