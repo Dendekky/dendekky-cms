@@ -1,0 +1,31 @@
+
+.related-posts {
+    padding: 0 15px 0 15px;
+    border: 1px solid #55555570;
+    .single-post {
+        transition: transform 1s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.comment-title {
+    height: 25px;
+}
+.comment-message {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #55555570;
+    border-radius: 5px;
+    p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+.reply-input {
+    margin-left: 10%;
+}
+.single-comment {
+    margin: 0.5% 0;
+}
