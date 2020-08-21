@@ -13,7 +13,7 @@ import {
   Button,
 } from "shards-react"
 import Alert from "../components/common/Alert"
-import { getCookie, setCookie, setAuthToken } from '../services/cookie';
+import { getCookie, setCookie, setAuthToken } from '../services/Cookie';
 import http from '../services/Apicalls'
 
 const Login = () => {
