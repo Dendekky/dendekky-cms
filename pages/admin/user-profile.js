@@ -1,9 +1,9 @@
 import React from "react"
 import { Container, Row, Col } from "shards-react"
 
-import PageTitle from "../components/common/PageTitle"
-import UserDetails from "../components/user-profile/UserDetails"
-import UserDetailsForm from "../components/user-profile/UserDetailsForm"
+import PageTitle from "../../components/common/PageTitle"
+import UserDetails from "../../components/user-profile/UserDetails"
+import UserDetailsForm from "../../components/user-profile/UserDetailsForm"
 
 const UserProfileLite = () => (
   <Container fluid className="main-content-container px-4">

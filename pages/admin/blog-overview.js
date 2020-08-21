@@ -10,9 +10,9 @@ import {
   CardBody,
 } from "shards-react"
 
-import PageTitle from "../components/common/PageTitle"
-import SmallStats from "../components/common/SmallStats"
-import PieChart from "../components/blog/ChartComponent"
+import PageTitle from "../../components/common/PageTitle"
+import SmallStats from "../../components/common/SmallStats"
+import PieChart from "../../components/blog/ChartComponent"
 import Http from "../../services/Apicalls"
 import LoadingAnimation from "../../components/common/Loading"
 import Errors from "./Errors"

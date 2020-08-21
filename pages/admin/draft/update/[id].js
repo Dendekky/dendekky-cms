@@ -13,11 +13,10 @@ import {
   Col,
 } from "shards-react"
 import { useDropzone } from "react-dropzone"
-import "../../assets/scss/dropzone.scss"
-import PageTitle from "../components/common/PageTitle"
-import QuillWYSIWYG from "../components/add-new-post/QuillEditor"
-import UpdateDraft from "../components/add-new-post/UpdateDraft"
-import DraftDeleteAction from "../components/add-new-post/DraftDeleteAction"
+import PageTitle from "../../../../components/common/PageTitle"
+import QuillWYSIWYG from "../../../../components/add-new-post/QuillEditor"
+import UpdateDraft from "../../../../components/add-new-post/UpdateDraft"
+import DraftDeleteAction from "../../../../components/add-new-post/DraftDeleteAction"
 
 const EditDraft = ({ location, match }) => {
   const [item, setItem] = useState({

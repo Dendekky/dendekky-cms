@@ -4,8 +4,8 @@ import Axios from "axios"
 
 import { Container, Row, Col } from "shards-react"
 
-import PageTitle from "../components/common/PageTitle"
-import DraftDeleteAction from "../components/add-new-post/DraftDeleteAction"
+import PageTitle from "../../../components/common/PageTitle"
+import DraftDeleteAction from "../../../components/add-new-post/DraftDeleteAction"
 
 class DraftPreview extends React.Component {
   constructor(props) {

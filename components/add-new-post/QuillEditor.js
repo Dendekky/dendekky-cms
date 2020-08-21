@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
-import "../../assets/quill.css"
 
 const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
   const modules = {
@@ -10,7 +9,7 @@ const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
       ["link", "image"],
       ["bold", "italic", "underline", "strike"], // toggled buttons
       ["blockquote", "code-block"],
-
+ 
       [{ list: "ordered" }, { list: "bullet" }],
       [{ script: "sub" }, { script: "super" }], // superscript/subscript
       [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
