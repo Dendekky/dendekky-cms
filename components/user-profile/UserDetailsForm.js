@@ -13,9 +13,9 @@ import {
   FormTextarea,
   Button,
 } from "shards-react"
-import ErrorAlert from "../../../components/common/Alert"
-import LoadingAnimation from "../../../components/common/Loading"
-import getWriterInfo from "../../../services/GetWriterInfo"
+import ErrorAlert from "../../components/common/Alert"
+import LoadingAnimation from "../../components/common/Loading"
+import getWriterInfo from "../../services/GetWriterInfo"
 
 const UserAccountDetails = (props) => {
   const [error, setError] = React.useState(false)

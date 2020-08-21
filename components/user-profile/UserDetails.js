@@ -8,8 +8,8 @@ import {
   ListGroupItem,
   Progress,
 } from "shards-react"
-import getWriterInfo from "../../../services/GetWriterInfo"
-import LoadingAnimation from "../../../components/common/Loading"
+import getWriterInfo from "../../services/GetWriterInfo"
+import LoadingAnimation from "../../components/common/Loading"
 
 const UserDetails = (props) => {
   const [userDetails, setUserDetails] = React.useState({
