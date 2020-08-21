@@ -5,6 +5,7 @@ import "bootstrap/scss/bootstrap.scss"
 import { Layout } from "../components/layout"
 import { DefaultLayout } from "../components/admin-layouts"
 import "../assets/scss/index.scss"
+import "react-quill/dist/quill.snow.css"
 
 function MyApp({ Component, pageProps }) {
   const MainLayout = Component.View === 'admin' ? DefaultLayout : Layout
