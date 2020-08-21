@@ -11,10 +11,10 @@ import {
   FormInput,
   Button,
 } from "shards-react"
-import QuillWYSIWYG from "../components/add-new-post/QuillEditor"
-import DropZone from "../components/add-new-post/DropZone"
-import PageTitle from "../components/common/PageTitle"
-import SaveNewDraft from "../components/add-new-post/SaveNewDraft"
+import QuillWYSIWYG from "../../components/add-new-post/QuillEditor"
+import DropZone from "../../components/add-new-post/DropZone"
+import PageTitle from "../../components/common/PageTitle"
+import SaveNewDraft from "../../components/add-new-post/SaveNewDraft"
 
 const AddNewPost = () => {
   const [rawHtml, setRawHtml] = useState("")
