@@ -2,8 +2,8 @@ import React from "react"
 import { Container, Row, Col } from "shards-react"
 
 import PageTitle from "../components/common/PageTitle"
-import UserDetails from "../admin/components/user-profile/UserDetails"
-import UserAbout from "../admin/components/user-profile/UserAbout"
+import UserDetails from "../components/user-profile/UserDetails"
+import UserAbout from "../components/user-profile/UserAbout"
 
 const UserProfile = () => (
   <Container fluid className="main-content-container px-4">
