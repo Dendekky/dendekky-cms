@@ -11,7 +11,7 @@ import {
 } from "shards-react"
 
 import Chart from "../../utils/chart"
-import ThemeColors from "../../../assets/colors/ThemeColors"
+import ThemeColors from "../../assets/colors/ThemeColors"
 
 class ChartComp extends React.Component {
   constructor(props) {

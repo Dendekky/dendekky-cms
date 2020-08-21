@@ -11,8 +11,8 @@ import {
   ListGroupItem,
   Button,
 } from "shards-react"
-import http from "../../../services/Apicalls"
-import ErrorAlert from "../../../components/common/Alert"
+import http from "../../services/Apicalls"
+import ErrorAlert from "../../components/common/Alert"
 
 function SidebarActions({ post, postBody, postImage, info }) {
   const [draftError, setDraftError] = useState(false)
