@@ -4,8 +4,8 @@ import Axios from "axios"
 
 import { Container, Row, Col } from "shards-react"
 
-import PageTitle from "../components/common/PageTitle"
-import ViewDeleteAction from "../components/add-new-post/ViewDeleteAction"
+import PageTitle from "../../../components/common/PageTitle"
+import ViewDeleteAction from "../../../components/add-new-post/ViewDeleteAction"
 
 class BlogInfo extends React.Component {
   constructor(props) {

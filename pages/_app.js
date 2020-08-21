@@ -3,11 +3,13 @@
 // import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/scss/bootstrap.scss"
 import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/admin-layouts"
 import "../assets/scss/index.scss"
 
 function MyApp({ Component, pageProps }) {
+  const MainLayout = Component.View === 'admin' ? DefaultLayout : Layout
   return (
-    <Layout>
+    <MainLayout>
       {/* <Head>
         <link
           rel="stylesheet"
@@ -16,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           crossorigin="anonymous" />
         </Head> */}
         <Component {...pageProps} />
-      </Layout>
+      </MainLayout>
   )
 }
 

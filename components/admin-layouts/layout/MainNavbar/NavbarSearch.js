@@ -7,7 +7,7 @@ import {
   FormInput,
 } from "shards-react"
 
-export default () => (
+const NavbarSearch = () => (
   <Form className="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
     <InputGroup seamless className="ml-3">
       <InputGroupAddon type="prepend">
@@ -22,3 +22,5 @@ export default () => (
     </InputGroup>
   </Form>
 )
+
+export default NavbarSearch

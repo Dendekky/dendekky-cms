@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useRouter, Router } from 'next/router'
+import { useRouter } from 'next/router'
 import {
   Card,
   CardHeader,

@@ -1,4 +1,4 @@
-export default function () {
+export default function NavItems () {
   return [
     {
       title: "Blog Dashboard",

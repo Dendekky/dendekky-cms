@@ -15,13 +15,14 @@ import {
   DropdownItem,
   FormInput,
 } from "shards-react"
+import { useRouter } from 'next/router'
 import { Eye, ChevronDown } from "react-feather"
 import http from "../../services/Apicalls"
 import LoadingAnimation from "../../components/common/Loading"
-import PageTitle from "../components/common/PageTitle"
-import "../../assets/scss/_agGridStyleOverride.scss"
+import PageTitle from "../../components/common/PageTitle"
 
 const BlogTable = (props) => {
+  const router = useRouter()
   const [blogPosts, setBlogPosts] = useState([])
   const [blogDrafts, setBlogDrafts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -73,7 +74,7 @@ const BlogTable = (props) => {
               size="sm"
               className="mr-50"
               onClick={() =>
-                props.history.push(`/admin/draft/${params.data._id}`)
+                router.push(`/admin/draft/${params.data._id}`)
               }
             >
               <Eye size={10} />
@@ -128,7 +129,7 @@ const BlogTable = (props) => {
               size="sm"
               className="mr-50"
               onClick={() =>
-                props.history.push(`/admin-post/${params.data._id}`)
+                router.push(`/admin/post/${params.data._id}`)
               }
             >
               <Eye size={10} />

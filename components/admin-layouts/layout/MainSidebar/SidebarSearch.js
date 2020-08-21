@@ -7,7 +7,7 @@ import {
   InputGroupText,
 } from "shards-react"
 
-export default () => (
+const SidebarSearch = () => (
   <Form
     className="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none"
     style={{ display: "flex", minHeight: "45px" }}
@@ -26,3 +26,5 @@ export default () => (
     </InputGroup>
   </Form>
 )
+
+export default SidebarSearch

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useDropzone } from "react-dropzone"
-import "../../../assets/scss/dropzone.scss"
 
 const DropZone = ({ files, setFiles }) => {
   const { getRootProps, getInputProps } = useDropzone({
