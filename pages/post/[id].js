@@ -13,7 +13,7 @@ import {
   // FormTextarea,
 } from "shards-react"
 // import LoadingAnimation from "../components/common/Loading"
-// import http from "../../services/Apicalls"
+import http from "../../services/Apicalls"
 import PageTitle from "../../components/common/PageTitle"
 // import Errors from "../admin/views/Errors"
 // import Comment from "../../components/Comments"
