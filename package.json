@@ -19,6 +19,7 @@
     "js-cookie": "^2.2.1",
     "next": "9.5.2",
     "next-images": "^1.4.1",
+    "next-on-netlify": "^2.3.2",
     "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
