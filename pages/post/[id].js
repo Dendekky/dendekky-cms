@@ -1,95 +1,95 @@
 /* eslint-disable linebreak-style */
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import Link from 'next/link'
 import {
   Container,
   Row,
   Col,
   Card,
-  CardBody,
-  CardHeader,
-  FormInput,
-  Button,
-  FormTextarea,
+  // CardBody,
+  // CardHeader,
+  // FormInput,
+  // Button,
+  // FormTextarea,
 } from "shards-react"
 // import LoadingAnimation from "../components/common/Loading"
-import http from "../../services/Apicalls"
+// import http from "../../services/Apicalls"
 import PageTitle from "../../components/common/PageTitle"
 // import Errors from "../admin/views/Errors"
-import Comment from "../../components/Comments"
+// import Comment from "../../components/Comments"
 import PageMetadata from "../../components/common/Helmet"
 
 function ViewPost ({ post }) {
-  const [item, setItem] = useState({
-    name: "",
-    comment: "",
-  })
-  const [postWithUpdatedComment, setPostWithUpdatedComment] = useState({})
+  // const [item, setItem] = useState({
+  //   name: "",
+  //   comment: "",
+  // })
+  // const [postWithUpdatedComment, setPostWithUpdatedComment] = useState({})
 
-  const onChange = (e) => setItem({ ...item, [e.target.name]: e.target.value})
+  // const onChange = (e) => setItem({ ...item, [e.target.name]: e.target.value})
 
-  const addComment = (
-    e,
-    replyComment = false,
-    parentComment = null,
-    name = null,
-    message = null
-  ) => {
-    if (replyComment === false && this.state.comment === "") {
-      return
-    }
-    if (replyComment && message === "") {
-      return
-    }
-    const data = {
-      postId: post._id,
-      name: replyComment === true ? name : item.name,
-      message: replyComment === true ? message : item.comment,
-    }
-    if (replyComment === true) {
-      data.parentId = parentComment._id
-      data.depth = parentComment.depth + 1
-    }
-    http
-      .post("/api/comment", data)
-      .then((res) => {
-        if (res.status === 201) {
-          http
-            .get(`/api/post/${post._id}`)
-            .then((result) => {
-              setPostWithUpdatedComment(result.data)
-            })
-            .catch(() => {
-              console.log("some error")
-            })
-        } else {
-          console.log("error performing task")
-        }
-      })
-      .catch((error) => console.log(error))
-  }
+  // const addComment = (
+  //   e,
+  //   replyComment = false,
+  //   parentComment = null,
+  //   name = null,
+  //   message = null
+  // ) => {
+  //   if (replyComment === false && this.state.comment === "") {
+  //     return
+  //   }
+  //   if (replyComment && message === "") {
+  //     return
+  //   }
+  //   const data = {
+  //     postId: post._id,
+  //     name: replyComment === true ? name : item.name,
+  //     message: replyComment === true ? message : item.comment,
+  //   }
+  //   if (replyComment === true) {
+  //     data.parentId = parentComment._id
+  //     data.depth = parentComment.depth + 1
+  //   }
+  //   http
+  //     .post("/api/comment", data)
+  //     .then((res) => {
+  //       if (res.status === 201) {
+  //         http
+  //           .get(`/api/post/${post._id}`)
+  //           .then((result) => {
+  //             setPostWithUpdatedComment(result.data)
+  //           })
+  //           .catch(() => {
+  //             console.log("some error")
+  //           })
+  //       } else {
+  //         console.log("error performing task")
+  //       }
+  //     })
+  //     .catch((error) => console.log(error))
+  // }
 
-  const displayComments = (allComments) => {
-    let comments = []
-    for (const comment of Object.values(allComments)) {
-      comments.push(
-        <Comment
-          loggedIn={null}
-          commentData={comment}
-          key={comment._id}
-          refreshCommentsAfterEdit={null}
-          addComment={addComment}
-        />
-      )
-      if (comment.children && Object.keys(comment.children).length > 0) {
-        const replies = displayComments(comment.children)
-        comments = comments.concat(replies)
-      }
-    }
-    return comments
-  }
+  // const displayComments = (allComments) => {
+  //   let comments = []
+  //   for (const comment of Object.values(allComments)) {
+  //     comments.push(
+  //       <Comment
+  //         loggedIn={null}
+  //         commentData={comment}
+  //         key={comment._id}
+  //         refreshCommentsAfterEdit={null}
+  //         addComment={addComment}
+  //       />
+  //     )
+  //     if (comment.children && Object.keys(comment.children).length > 0) {
+  //       const replies = displayComments(comment.children)
+  //       comments = comments.concat(replies)
+  //     }
+  //   }
+  //   return comments
+  // }
 
-    const comments = displayComments(Object.entries(postWithUpdatedComment).length !== 0 ? postWithUpdatedComment.comments : post.comments || [])
+    // const comments = displayComments(Object.entries(postWithUpdatedComment).length !== 0 ? postWithUpdatedComment.comments : post.comments || [])
 
     return (
       <div className="blogpost">
@@ -121,7 +121,7 @@ function ViewPost ({ post }) {
                     dangerouslySetInnerHTML={{ __html: post.body }}
                   />
                 </Col>
-                <Col lg="12" md="12">
+                {/* <Col lg="12" md="12">
                   <Card className="mx-0 px-0">
                     <CardHeader className="mb-0 pb-0 font-weight-bolder lead">
                       Discussions
@@ -165,7 +165,7 @@ function ViewPost ({ post }) {
                       </div>
                     </CardBody>
                   </Card>
-                </Col>
+                </Col> */}
               </Row>
             </Col>
             <Col lg="4" className="py-4 px-3 my-4">
