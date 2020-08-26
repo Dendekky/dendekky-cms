@@ -89,14 +89,8 @@ function ViewPost ({ post }) {
     return comments
   }
 
-    const comments = displayComments(Object.entries(postWithUpdatedComment).length !== 0 ? postWithUpdatedComment.comments : post.comments || [])
+    // const comments = displayComments(Object.entries(postWithUpdatedComment).length !== 0 ? postWithUpdatedComment.comments : post.comments || [])
 
-    // if (isLoading) {
-    //   return <LoadingAnimation />
-    // }
-    // if (isError) {
-    //   return <Errors />
-    // }
     return (
       <div className="blogpost">
         <PageMetadata title={post.title} id={post._id} image={post.postImage} />
@@ -127,7 +121,7 @@ function ViewPost ({ post }) {
                     dangerouslySetInnerHTML={{ __html: post.body }}
                   />
                 </Col>
-                <Col lg="12" md="12">
+                {/* <Col lg="12" md="12">
                   <Card className="mx-0 px-0">
                     <CardHeader className="mb-0 pb-0 font-weight-bolder lead">
                       Discussions
@@ -171,7 +165,7 @@ function ViewPost ({ post }) {
                       </div>
                     </CardBody>
                   </Card>
-                </Col>
+                </Col> */}
               </Row>
             </Col>
             <Col lg="4" className="py-4 px-3 my-4">
