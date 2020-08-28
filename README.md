@@ -1,6 +1,5 @@
 # MM CMS Client
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3d6deab6-47b6-4e61-9180-2270e1048623/deploy-status)](https://app.netlify.com/sites/marblesofhameedah/deploys)
 <br />
 
 <!-- - **Flux** is used for state management and all Flux specific files are located inside `src/flux`. Transitioning to a more robust solution such as Redux is also fairly simple.
