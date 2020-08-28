@@ -1,0 +1,34 @@
+
+// @media screen and (max-width: 560px) {
+//     body {
+//         .header-image {
+//             h2 {
+//                 font-size: 40px;
+//             }
+//       }
+//     }
+// }
+
+.header-image {
+    background: url("https://res.cloudinary.com/dendekky/image/upload/c_scale,h_1024,q_80/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg") no-repeat fixed center;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    // object-fit: cover;
+    // max-width: 100%;
+    font-style: oblique;
+    color: #ffffff;
+    font-family: "Fondamento",cursive;
+    // height: 200px;
+    text-align: center;
+    padding: 40px 20px;
+    h2 {
+        font-family: "Fondamento",cursive;
+        color: #ffffff;
+        font-size: 40px;
+        padding: 40px 0px;
+        margin-bottom: 16px;
+    }
+    p {
+        font-size: 20px;
+    }
+}

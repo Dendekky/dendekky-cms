@@ -22,6 +22,23 @@ const Header = () => {
   }
   return (
     <>
+    <div className="header-image">
+      <h2 className="">Meedah's Marbles</h2>
+      <p className="m-0 p-0">A digital chest of my best thoughts and opinions. 
+        Marbles, I call them. From Poetry, to Politics, to the everyday happenstances of life. 
+        And of course, the occasional travel documentary. 
+      </p>
+    {/* <img
+      id="main-logo"
+      style={{ 
+        objectfit: "cover",
+        maxWidth: "100%",
+       }}
+      // src={require("../../../assets/images/UserAvatar.jpg")}
+      src="https://res.cloudinary.com/dendekky/image/upload/c_scale,h_1047,q_60/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
+      alt="MM"
+    /> */}
+    </div>
     <Navbar type="light" theme="" expand="sm" className="main-navbar sticky-top bg-white">
       <NavbarBrand href="/">
         <div className="d-flex">
