@@ -24,22 +24,12 @@ const Header = () => {
     <>
     <div className="header-image">
       <h2 className="">Meedah's Marbles</h2>
-      <p className="m-0 p-0">A digital chest of my best thoughts and opinions. 
+      <p className="m-0">A digital chest of my best thoughts and opinions. 
         Marbles, I call them. From Poetry, to Politics, to the everyday happenstances of life. 
         And of course, the occasional travel documentary. 
       </p>
-    {/* <img
-      id="main-logo"
-      style={{ 
-        objectfit: "cover",
-        maxWidth: "100%",
-       }}
-      // src={require("../../../assets/images/UserAvatar.jpg")}
-      src="https://res.cloudinary.com/dendekky/image/upload/c_scale,h_1047,q_60/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
-      alt="MM"
-    /> */}
     </div>
-    <Navbar type="light" theme="" expand="sm" className="main-navbar sticky-top bg-white">
+    <Navbar type="light" theme="" expand="xs" className="main-navbar sticky-top bg-white">
       <NavbarBrand href="/">
         <div className="d-flex">
           <img
@@ -48,7 +38,6 @@ const Header = () => {
             src={require("../../../assets/images/mm-logo.jpg")}
             alt="MM"
           />
-          {/* <span className="d-none d-md-inline ml-1">Meedah's Marble</span> */}
         </div>
       </NavbarBrand>
     <NavbarToggler onClick={toggleCollapse} />
@@ -83,16 +72,16 @@ const Header = () => {
       <Nav navbar className="ml-auto">
         <img
           className="user-avatar rounded-circle mr-2"
-          src={require("../../../assets/images/UserAvatar.jpg")}
+          // src={require("../../../assets/images/UserAvatar.jpg")}
           className="d-none d-sm-inline-block"
           style={{
             height: "30px",
             borderRadius: "50%",
           }}
-          // src="https://res.cloudinary.com/dendekky/image/upload/c_scale,h_336,q_25,f_auto/v1595318921/0_uoa7bf.jpg"
+          src="https://res.cloudinary.com/dendekky/image/upload/c_scale,h_336,q_25,f_auto/v1595318921/0_uoa7bf.jpg"
           alt="User Avatar"
         />{" "}
-        <span className="d-none d-sm-inline-block ml-1">Meedah's Marble</span>
+        <span className="d-none d-sm-inline-block ml-1">Wlecome to Meedah's Marble</span>
       </Nav>
     </Collapse>
     <hr />

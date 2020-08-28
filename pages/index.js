@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import Head from 'next/head'
 import Link from 'next/link'
 import http from "../services/Apicalls"
-import { Container, Row, Col, Card, CardBody, Badge, CardFooter, Tooltip } from "shards-react"
+import { Container, Row, Col, Card, CardBody, Button, Badge, CardFooter, Tooltip, Form, FormGroup, FormInput } from "shards-react"
 // import LoadingAnimation from "../components/common/Loading"
 import PageTitle from "../components/common/PageTitle"
 // import Errors from "./admin//Errors"
@@ -163,6 +163,21 @@ const toggleUniqueTooltip = (tooltipId) => {
             <span>{new Date(post.updatedAt).toDateString()}</span>
           </div>
         ))}
+        <PageTitle
+          sm="12"
+          subtitle="Follow Meedah's Marbles via Email"
+          className="text-sm-left text-uppercase my-5 mx-0 px-0"
+        />
+        <hr />
+        <Form>
+          <FormGroup>
+            <label htmlFor="#username">Email</label>
+            <FormInput id="#username" placeholder="ajayi@gmail.com" />
+          </FormGroup>
+          <Button outline theme="warning">
+            Subscribe!
+          </Button>
+        </Form>
       </Col>
       </Row>
     </Container>
