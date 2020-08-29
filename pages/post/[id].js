@@ -20,10 +20,9 @@ import Comment from "../../components/Comments"
 import PageMetadata from "../../components/common/Helmet"
 
 function ViewPost ({ post }) {
-  if (!post) {
-    return null
-  }
-  console.log(post.title)
+  // if (!post) {
+  //   return null
+  // }
   const [item, setItem] = useState({
     name: "",
     comment: "",
@@ -253,28 +252,9 @@ export async function getStaticPaths() {
   const paths = posts.map((post) => ({
     params: { id: post._id },
   }))
-  // console.log(paths)
-  // const paths = [
-  //     { params: { id: '5e36658a85d34c00514ef23d' } },
-  //     { params: { id: '5e4ed990e392fd005169cb48' } },
-  //     { params: { id: '5efdb43f17b3930051116521' } },
-  //     { params: { id: '5efdbff01bcbea005187e6ea' } },
-  //     { params: { id: '5efdc0791bcbea005187e6eb' } },
-  //     { params: { id: '5efdc0db1bcbea005187e6ec' } },
-  //     { params: { id: '5f16316977a0840051c3e674' } }
-  //   ]
-  // const paths = [
-  //   '/post/5e36658a85d34c00514ef23d',
-  //   '/post/5e4ed990e392fd005169cb48',
-  //   '/post/5efdb43f17b3930051116521',
-  //   '/post/5efdbff01bcbea005187e6ea',
-  //   '/post/5efdc0791bcbea005187e6eb',
-  //   '/post/5efdc0db1bcbea005187e6ec',
-  //   '/post/5f16316977a0840051c3e674'
-  // ]
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: true }
+  return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
