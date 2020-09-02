@@ -23,7 +23,6 @@
     "js-cookie": "^2.2.1",
     "next": "9.5.2",
     "next-images": "^1.4.1",
-    "next-purgecss": "^4.0.0",
     "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -43,6 +42,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
+    "next-purgecss": "^4.0.0",
     "prettier": "^2.1.1"
   }
 }
