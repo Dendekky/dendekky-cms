@@ -290,11 +290,8 @@ function BlogPosts({ posts }) {
   )
 }
 
-// This function gets called at build time
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts
+export async function getServerSideProps() {
   const res = await http.get("/api/post")
-  // const res = await fetch('https://.../posts')
   const posts = await res.data.posts.reverse()
 
   // By returning { props: posts }, the Blog component
