@@ -1,9 +1,7 @@
 const withSass = require("@zeit/next-sass")
+const withPurgeCss = require("next-purgecss")
 
-module.exports = withSass({
-  // cssModules: true
-  /* config options here */
-})
+module.exports = withSass(withPurgeCss())
 const withImages = require("next-images")
 
 module.exports = withImages()
