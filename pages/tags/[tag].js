@@ -291,12 +291,20 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   // const paths = posts.map((post) => `/post/${post._id}`)
+  const validTags = []
   const tags = posts
     .map((item) => item.tags)
     .flat()
     .filter((v, i, self) => i == self.indexOf(v))
 
-  const paths = tags.map((tag) => ({
+  // To avoid error from empty or null tags when prerendering
+  tags.forEach((tag) => {
+    if (tag.length > 0) {
+      validTags.push(tag)
+    }
+  })
+
+  const paths = validTags.map((tag) => ({
     params: { tag },
   }))
   // We'll pre-render only these paths at build time.
