@@ -20,6 +20,8 @@
 
 - Admin can sign in
 
+- Admin can receive notifications when readers comment
+
 - Admin can create, read, edit and delete drafts
 
 - Admin can publish drafts as blog posts
@@ -41,6 +43,7 @@
 ## :snail: TODO
 
 - Admin should be able to moderate, and delete comments
+- Admin should be able to view the numbers and list of subscribers
 - Admin should be able to filter by tags
 - Add more react quill features
 - Include schedule post functionality
@@ -62,23 +65,21 @@ See package.json for project dependencies and devDependencies
 
 ### Quick Start
 * Install dependencies by running `npm install`.
-* Run `npm run start` to start the local development server.
+* Run `npm run dev` to start the local development server.
 
 <br />
 
 ### :building_construction: Built using
 
+- [Next.js](https://nextjs.org)
 - [Shards React](https://github.com/designrevision/shards-react)
-- [Ag-Grid-React](https://www.ag-grid.com/)
-- [Chart.js](https://www.chartjs.org/)
-- [Quill](https://quilljs.com/)
-- [Flux](https://facebook.github.io/flux/)
 
 <br />
 
 ## :star: Contributing
 This project was started with the intention of facilitating learning and that hasn't changed. Contributons, comments, and PRs are all welcome.
 Consider running the [CMS SERVER REST API project](https://github.com/Dendekky/mm-server) locally during development.
+You can check out the [CMS client admin](https://github.com/Dendekky/mm-client). In the future, the admin app and and this will be merged.
 
 ## :bearded_person: Author
 [Ibrahim Adeniyi](https://dendekky.me)
