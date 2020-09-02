@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 import {
   Card,
   CardHeader,
@@ -13,8 +13,8 @@ import {
   Button,
 } from "shards-react"
 import Alert from "../components/common/Alert"
-import { getCookie, setCookie, setAuthToken } from '../services/Cookie';
-import http from '../services/Apicalls'
+import { getCookie, setCookie, setAuthToken } from "../services/Cookie"
+import http from "../services/Apicalls"
 
 const Login = () => {
   const router = useRouter()
@@ -32,7 +32,8 @@ const Login = () => {
   const onSubmit = async (event) => {
     event.preventDefault()
     setIsSubmit(true)
-    http.post("/api/login", user)
+    http
+      .post("/api/login", user)
       .then((res) => {
         // Set token to cookie
         const { token } = res.data

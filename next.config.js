@@ -1,9 +1,11 @@
-const withSass = require('@zeit/next-sass')
+const withSass = require("@zeit/next-sass")
+
 module.exports = withSass({
-    // cssModules: true
+  // cssModules: true
   /* config options here */
 })
-const withImages = require('next-images')
+const withImages = require("next-images")
+
 module.exports = withImages()
 
 // config to host on netlify
@@ -12,4 +14,4 @@ module.exports = withImages()
 //   target: 'serverless'
 // };
 // const withCss = require('@zeit/next-css')
-// module.exports = withCss({}); 
+// module.exports = withCss({});

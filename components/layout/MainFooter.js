@@ -19,7 +19,7 @@ const MainFooter = ({ contained, menuItems, copyright }) => (
           {menuItems.map((item, idx) => (
             <NavItem key={idx}>
               <NavLink href={item.to} target="_blank" rel="noopener noreferrer">
-                  {item.title}
+                {item.title}
               </NavLink>
             </NavItem>
           ))}

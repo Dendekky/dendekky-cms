@@ -13,8 +13,8 @@ import {
   FormTextarea,
   Button,
 } from "shards-react"
-import ErrorAlert from "../../components/common/Alert"
-import LoadingAnimation from "../../components/common/Loading"
+import ErrorAlert from "../common/Alert"
+import LoadingAnimation from "../common/Loading"
 import getWriterInfo from "../../services/GetWriterInfo"
 
 const UserAccountDetails = (props) => {

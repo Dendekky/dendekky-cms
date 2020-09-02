@@ -1,7 +1,7 @@
 import React from "react"
 import { Alert } from "shards-react"
 
-export default class ErrorAlert extends React.Component {
+export default class CustomAlert extends React.Component {
   constructor(props) {
     super(props)
     this.state = { visible: true }

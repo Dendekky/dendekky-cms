@@ -9,7 +9,7 @@ import {
   Progress,
 } from "shards-react"
 import getWriterInfo from "../../services/GetWriterInfo"
-import LoadingAnimation from "../../components/common/Loading"
+import LoadingAnimation from "../common/Loading"
 
 const UserDetails = (props) => {
   const [userDetails, setUserDetails] = React.useState({

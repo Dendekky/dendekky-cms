@@ -16,11 +16,11 @@ import {
   FormInput,
   Alert,
 } from "shards-react"
-import PageTitle from "../components/common/PageTitle"
-import PageMetadata from "../components/common/Helmet"
-import http from "../services/Apicalls"
+import PageTitle from "../../components/common/PageTitle"
+import PageMetadata from "../../components/common/Helmet"
+import http from "../../services/Apicalls"
 
-function BlogPosts({ posts }) {
+function CategoryPosts({ posts, category, allPosts }) {
   const [reader, setReader] = useState({
     email: "",
   })
@@ -37,14 +37,14 @@ function BlogPosts({ posts }) {
   }))
 
   const postsArray = [...posts]
-  const category = postsArray
+  const categories = postsArray
     .map((item) => item.category)
     .filter((v, i, self) => i == self.indexOf(v))
-  const tags = postsArray
+  const tags = allPosts
     .map((item) => item.tags)
     .flat()
     .filter((v, i, self) => i == self.indexOf(v))
-  const popularPosts = postsArray
+  const popularPosts = allPosts
     .sort((a, b) => b.comments.length - a.comments.length)
     .slice(0, 3)
 
@@ -122,8 +122,8 @@ function BlogPosts({ posts }) {
       <Row noGutters className="page-header py-4">
         <PageTitle
           sm="4"
-          title="Blog Posts"
-          // subtitle="Components"
+          title={category}
+          subtitle="Category"
           className="text-sm-left"
         />
       </Row>
@@ -178,13 +178,13 @@ function BlogPosts({ posts }) {
           </Row>
         </Col>
         <Col md="3" lg="3" className="my-2">
-          <PageTitle
+          {/* <PageTitle
             sm="12"
-            title="Blog Category"
+            title="All Category"
             className="text-sm-left text-uppercase"
           />
           <hr />
-          {category.map((item) => (
+          {categories.map((item) => (
             <Link
               key={item}
               href={`/category/${item}`}
@@ -193,30 +193,29 @@ function BlogPosts({ posts }) {
               <a className="text-fiord-blue">
                 <Badge
                   className="mx-1 my-1 text-uppercase font-weight-bold lead"
-                  // href="#"
-                  // key={idx}
+                  //   href="#"
+                  //   key={idx}
                   // outline
                 >
                   {item}
                 </Badge>
               </a>
             </Link>
-          ))}
+          ))} */}
           <PageTitle
             sm="12"
             title="Tags"
-            className="text-sm-left text-uppercase my-5"
+            className="text-sm-left text-uppercase"
           />
           <hr />
           {tags.map((item) => (
             <Link key={item} href={`/tags/${item}`} as={`/tags/${item}`}>
               <a className="text-fiord-blue">
-                {/* {trimmedPostBody(post.title, 50)} */}
                 <Badge
                   className="mx-1 my-1 text-uppercase"
-                  // href="#"
+                  //   href="#"
                   theme="info"
-                  // key={idx}
+                  //   key={idx}
                   outline
                 >
                   {item}
@@ -290,20 +289,43 @@ function BlogPosts({ posts }) {
   )
 }
 
-// This function gets called at build time
-export async function getStaticProps() {
+export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await http.get("/api/post")
-  // const res = await fetch('https://.../posts')
+  const res = await http.get(`/api/post`)
+  const posts = await res.data.posts
+
+  // Get the paths we want to pre-render based on posts
+  // const paths = posts.map((post) => `/post/${post._id}`)
+  const categories = posts
+    .map((item) => item.category)
+    .filter((v, i, self) => i == self.indexOf(v))
+
+  const paths = categories.map((category) => ({
+    params: { category },
+  }))
+  console.log(paths)
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }) {
+  // Call an external API endpoint to get posts
+  const res = await http.get(`/api/posts/categories/${params.category}`)
+  const postsData = await http.get("/api/post")
   const posts = await res.data.posts.reverse()
+  const allPosts = await postsData.data.posts.reverse()
+  const { category } = params
 
   // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  // will receive `post` as a prop at build time
   return {
     props: {
       posts,
+      category,
+      allPosts,
     },
   }
 }
 
-export default BlogPosts
+export default CategoryPosts

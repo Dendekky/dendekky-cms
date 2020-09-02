@@ -1,9 +1,7 @@
 import Header from "./NavbarHeader"
 
 const MainNavbar = () => {
-  return (
-    <Header />
-  )
+  return <Header />
 }
 
 export default MainNavbar

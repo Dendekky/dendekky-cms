@@ -12,7 +12,7 @@ import {
   Button,
 } from "shards-react"
 import http from "../../services/Apicalls"
-import ErrorAlert from "../../components/common/Alert"
+import ErrorAlert from "../common/Alert"
 
 function SaveNewDraft({ post, postBody, postImage, info }) {
   const [draftError, setDraftError] = useState(false)

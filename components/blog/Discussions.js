@@ -36,7 +36,7 @@ const Discussions = ({ title, discussions }) => (
               <a className="text-secondary" href={discussion.post.url}>
                 {discussion.post.title}
               </a>
-              <span className="text-mutes">- {discussion.date}</span>
+              <span className="text-mutes">-{discussion.date}</span>
             </div>
 
             {/* Content :: Body */}

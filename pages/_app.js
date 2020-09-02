@@ -3,12 +3,11 @@
 // import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/scss/bootstrap.scss"
 import { Layout } from "../components/layout"
-import { DefaultLayout } from "../components/admin-layouts"
 import "../assets/scss/index.scss"
-import "react-quill/dist/quill.snow.css"
+// import "react-quill/dist/quill.snow.css"
 
 function MyApp({ Component, pageProps }) {
-  const MainLayout = Component.View === 'admin' ? DefaultLayout : Layout
+  const MainLayout = Component.View === "admin" ? null : Layout
   return (
     <MainLayout>
       {/* <Head>
@@ -18,8 +17,8 @@ function MyApp({ Component, pageProps }) {
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous" />
         </Head> */}
-        <Component {...pageProps} />
-      </MainLayout>
+      <Component {...pageProps} />
+    </MainLayout>
   )
 }
 
