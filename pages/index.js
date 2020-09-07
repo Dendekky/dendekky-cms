@@ -293,7 +293,7 @@ function BlogPosts({ posts }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await http.get("/api/post")
   const posts = await res.data.posts.reverse()
 
