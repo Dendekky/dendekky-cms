@@ -229,8 +229,8 @@ function ViewPost({ post }) {
                             // outline
                             onClick={addComment}
                           >
-                            {replyState.isSubmit && <span>subscibing...</span>}
-                            {!replyState.isSubmit && <span>Subscribe!</span>}
+                            {replyState.isSubmit && <span>submitting...</span>}
+                            {!replyState.isSubmit && <span>Submit!</span>}
                           </Button>
                         </Col>
                       </Row>
