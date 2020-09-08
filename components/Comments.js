@@ -47,7 +47,7 @@ class Comment extends Component {
 
   render() {
     const comment = this.props.commentData
-    const date = new Date(comment.createdAt).toLocaleString()
+    const date = new Date(comment.createdAt).toDateString()
     const replyActionsStyle = {
       backgroundColor: "#2196f3",
       margin: "5px 0 0 5px",
@@ -57,8 +57,8 @@ class Comment extends Component {
     return (
       <div className="single-comment" style={{ marginLeft: marginleft }}>
         <div className="comment-title">
-          <div style={{ float: "left" }}>{comment.name}</div>
-          <div style={{ float: "right" }}>{date}</div>
+          <div>{comment.name}</div>
+          <div>{date}</div>
         </div>
         <div className="comment-message px-1 py-1">
           <p>{comment.message}</p>

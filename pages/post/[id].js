@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable linebreak-style */
 import React, { useState } from "react"
 import Link from "next/link"
@@ -110,7 +111,7 @@ function ViewPost({ post }) {
       <Container fluid className="main-content-container px-4 pb-4">
         <Row>
           <Col md="12" lg="8">
-            <Row noGutters className="page-header py-4 mx-3 px-3">
+            <Row noGutters className="page-header py-4 mx-3 px-0">
               <Col lg="12" md="12">
                 <PageTitle
                   sm="12"
@@ -132,7 +133,12 @@ function ViewPost({ post }) {
                   src={post.postImage}
                 />
                 <div
-                  style={{ wordWrap: "break-word", fontSize: "18px" }}
+                  style={{
+                    fontSize: "18px",
+                    hyphens: "auto",
+                    textAlign: "justify",
+                    width: "100%",
+                  }}
                   dangerouslySetInnerHTML={{ __html: post.body }}
                 />
               </Col>
@@ -177,7 +183,7 @@ function ViewPost({ post }) {
                         {Object.entries(postWithUpdatedComment).length !== 0
                           ? postWithUpdatedComment.commentsLength
                           : post.commentsLength || 0}{" "}
-                        Comments
+                        Comments on {post.title}
                       </div>
                       <div>{comments}</div>
                     </div>
@@ -186,8 +192,8 @@ function ViewPost({ post }) {
               </Col>
             </Row>
           </Col>
-          <Col lg="4" className="py-4 px-3 my-4">
-            <div>
+          <Col lg="4" className="py-4 my-4 side-content">
+            <div className="post-share">
               <PageTitle
                 sm="12"
                 title="Share Post"
@@ -196,16 +202,45 @@ function ViewPost({ post }) {
               />
               <a
                 href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                className="twitter-share-button px-3"
+                // target="_blank"
+                // rel="noopener noreferrer"
                 data-show-count="true"
               >
-                <img src="https://img.icons8.com/material/24/000000/twitter-squared.png" />
+                <img
+                  alt="whatsapp"
+                  src={require("../../assets/logo/twitter.svg")}
+                />
               </a>
-              <script
-                async
-                src="https://platform.twitter.com/widgets.js"
-                charSet="utf-8"
-              />
+              <a
+                href={`https://wa.me/?text=https://marblesofhameedah.rocks/post/${post._id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="whatsapp"
+                  src={require("../../assets/logo/whatsapp.svg")}
+                />
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=https://marblesofhameedah.rocks/post/${post._id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="facebook"
+                  src={require("../../assets/logo/facebook.svg")}
+                />
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=https://marblesofhameedah.rocks/post/${post._id}&title=${post.title}&summary=${post.title}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="linkedin"
+                  src={require("../../assets/logo/linkedin.svg")}
+                />
+              </a>
             </div>
             <div className="mt-5 mt-md-5 mt-lg-5 related-posts">
               <PageTitle
@@ -213,7 +248,7 @@ function ViewPost({ post }) {
                 title="Related Posts"
                 className="text-sm-left"
               />
-              <Row>
+              <Row className="mx-0">
                 {post.relatedPosts.map((val) => (
                   <Link
                     key={val._id}
@@ -222,6 +257,7 @@ function ViewPost({ post }) {
                   >
                     <a className="text-decoration-none text-fiord-blue">
                       <Col
+                        xs="12"
                         sm="12"
                         md="12"
                         lg="12"
@@ -229,7 +265,13 @@ function ViewPost({ post }) {
                       >
                         <Card>
                           <Row>
-                            <Col sm="3" md="3" lg="3" className="px-0 mx-0">
+                            <Col
+                              xs="3"
+                              sm="3"
+                              md="3"
+                              lg="3"
+                              className="px-0 mx-0"
+                            >
                               <img
                                 style={{
                                   height: "100%",
@@ -241,7 +283,7 @@ function ViewPost({ post }) {
                                 src={val.postImage}
                               />
                             </Col>
-                            <Col sm="9" md="9" lg="9" className="py-1">
+                            <Col xs="9" sm="9" md="9" lg="9" className="py-2">
                               {val.title}
                             </Col>
                           </Row>
@@ -255,6 +297,19 @@ function ViewPost({ post }) {
           </Col>
         </Row>
       </Container>
+      {/* <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/pixel-perfect"
+          title="Pixel perfect"
+        >
+          Pixel perfect
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div> */}
     </div>
   )
 }

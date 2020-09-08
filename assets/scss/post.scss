@@ -15,20 +15,30 @@
 // .post-list {
 
 // }
-
-.related-posts {
+.side-content {
     padding: 0 15px 0 15px;
-    border: 1px solid #55555570;
-    .single-post {
-        transition: transform 1s;
-        &:hover {
-            transform: scale(1.1);
+    .post-share {
+        img {
+            height: 30px;
+            margin: 8px;
+        }
+    }
+    .related-posts {
+        // border: 1px solid #55555570;
+        .single-post {
+            // margin: 8px;
+            transition: transform 1s;
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }
 
 .comment-title {
-    height: 25px;
+    display: flex;
+    justify-content: space-around;
+    // min-height: 25px;
 }
 .comment-message {
     display: flex;

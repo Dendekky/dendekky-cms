@@ -120,7 +120,7 @@ function BlogPosts({ posts }) {
     <Container fluid className="main-content-container px-4">
       <PageMetadata
         title="Home"
-        image="https://res.cloudinary.com/dendekky/image/upload/c_scale,q_80/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
+        // image="https://res.cloudinary.com/dendekky/image/upload/c_scale,q_80/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
       />
       <Row noGutters className="page-header py-4">
         <PageTitle

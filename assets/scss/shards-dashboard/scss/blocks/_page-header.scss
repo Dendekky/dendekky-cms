@@ -12,7 +12,7 @@
     padding: $page-title-padding;
 
     @include media-breakpoint-down(sm) {
-      font-size: $page-title-sm-font-size;
+      // font-size: $page-title-sm-font-size;
     }
   }
 
