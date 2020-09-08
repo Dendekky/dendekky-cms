@@ -3,15 +3,17 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import {
+  Alert,
   Container,
   Row,
   Col,
   Card,
-  CardBody,
-  CardHeader,
+  // CardBody,
+  // CardHeader,
   FormInput,
   Button,
   FormTextarea,
+  Form,
 } from "shards-react"
 // import LoadingAnimation from "../components/common/Loading"
 import http from "../../services/Apicalls"
@@ -29,7 +31,12 @@ function ViewPost({ post }) {
     comment: "",
   })
   const [postWithUpdatedComment, setPostWithUpdatedComment] = useState({})
-
+  const [replyState, setReplyState] = useState({
+    isSubmit: false,
+    alert: false,
+    alertMessage: "",
+    alertColor: "",
+  })
   const onChange = (e) => setItem({ ...item, [e.target.name]: e.target.value })
 
   const addComment = (
@@ -39,7 +46,11 @@ function ViewPost({ post }) {
     name = null,
     message = null
   ) => {
-    if (replyComment === false && this.state.comment === "") {
+    setReplyState({
+      ...replyState,
+      isSubmit: true,
+    })
+    if (replyComment === false && item.comment === "") {
       return
     }
     if (replyComment && message === "") {
@@ -58,19 +69,42 @@ function ViewPost({ post }) {
       .post("/api/comment", data)
       .then((res) => {
         if (res.status === 201) {
+          setReplyState({
+            ...replyState,
+            alert: true,
+            alertColor: "success",
+            alertMessage: res.data.message,
+          })
           http
             .get(`/api/post/${post._id}`)
-            .then((result) => {
-              setPostWithUpdatedComment(result.data)
+            .then((response) => {
+              setPostWithUpdatedComment(response.data)
+              setItem({ ...item, name: "", comment: "" })
             })
             .catch(() => {
               console.log("some error")
             })
         } else {
-          console.log("error performing task")
+          let errorText = ""
+          if (res.data.errors)
+            res.data.errors.forEach((error) => {
+              errorText += error.msg
+            })
+          const errorMessage = res.data.message || errorText
+          setReplyState({
+            ...replyState,
+            alert: true,
+            alertColor: "warning",
+            alertMessage: errorMessage,
+          })
         }
       })
       .catch((error) => console.log(error))
+      .finally(() => {
+        setTimeout(() => {
+          setReplyState({ alert: false })
+        }, 5000)
+      })
   }
 
   const displayComments = (allComments) => {
@@ -141,45 +175,14 @@ function ViewPost({ post }) {
                   }}
                   dangerouslySetInnerHTML={{ __html: post.body }}
                 />
+                <hr />
               </Col>
               <Col lg="12" md="12">
-                <Card className="mx-0 px-0">
-                  <CardHeader className="mb-0 pb-0 font-weight-bolder lead">
-                    Discussions
-                  </CardHeader>
-                  <CardBody>
-                    <Row className="">
-                      <Col sm="12" md="6" lg="6">
-                        <label htmlFor="name">Name</label>
-                        <FormInput
-                          value={item.name}
-                          name="name"
-                          type="text"
-                          onChange={onChange}
-                        />
-                      </Col>
-                      <Col sm="12" md="12" lg="12">
-                        <label htmlFor="comment">Comment</label>
-                        <FormTextarea
-                          name="comment"
-                          value={item.comment}
-                          placeholder="Type your comment..."
-                          style={{ width: "100%" }}
-                          onChange={onChange}
-                        />
-                      </Col>
-                    </Row>
-                    <Button
-                      size="small"
-                      color="primary"
-                      variant="contained"
-                      style={{ backgroundColor: "#2196f3", marginTop: "1%" }}
-                      onClick={addComment}
-                    >
-                      Submit
-                    </Button>
+                <Row className="mx-0 px-0">
+                  <Col className="mb-0 pb-0 lead discussions">Discussions</Col>
+                  <Col sm="12" md="12" lg="12">
                     <div>
-                      <div className="mt-2 font-weight-bold">
+                      <div className="my-2 comments-number">
                         {Object.entries(postWithUpdatedComment).length !== 0
                           ? postWithUpdatedComment.commentsLength
                           : post.commentsLength || 0}{" "}
@@ -187,8 +190,53 @@ function ViewPost({ post }) {
                       </div>
                       <div>{comments}</div>
                     </div>
-                  </CardBody>
-                </Card>
+                    <Form>
+                      <Row className="reply-form">
+                        <Col sm="12" md="12" lg="12">
+                          <h4>Leave a Reply</h4>
+                        </Col>
+                        {replyState.alert ? (
+                          <Alert theme={replyState.alertColor}>
+                            {replyState.alertMessage}
+                          </Alert>
+                        ) : null}
+                        <Col sm="12" md="6" lg="6">
+                          <label htmlFor="name">Name</label>
+                          <FormInput
+                            value={item.name}
+                            name="name"
+                            type="text"
+                            onChange={onChange}
+                          />
+                        </Col>
+                        <Col sm="12" md="12" lg="12">
+                          <label htmlFor="comment">Comment</label>
+                          <FormTextarea
+                            name="comment"
+                            value={item.comment}
+                            size="lg"
+                            placeholder="Type your comment..."
+                            style={{ width: "100%" }}
+                            onChange={onChange}
+                          />
+                        </Col>
+                        <Col className="mt-2">
+                          <Button
+                            size="md"
+                            theme="warning"
+                            variant="contained"
+                            disabled={replyState.isSubmit}
+                            // outline
+                            onClick={addComment}
+                          >
+                            {replyState.isSubmit && <span>subscibing...</span>}
+                            {!replyState.isSubmit && <span>Subscribe!</span>}
+                          </Button>
+                        </Col>
+                      </Row>
+                    </Form>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Col>

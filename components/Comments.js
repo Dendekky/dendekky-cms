@@ -57,23 +57,26 @@ class Comment extends Component {
     return (
       <div className="single-comment" style={{ marginLeft: marginleft }}>
         <div className="comment-title">
-          <div>{comment.name}</div>
-          <div>{date}</div>
+          <div className="comment-user">
+            <img
+              alt={`user-${comment.name}`}
+              src={`https://api.adorable.io/avatars/20/${comment.name}@adorable.io.png`}
+            />
+            <div>{comment.name}</div>
+          </div>
+          <span className="comment-date">{date}</span>
         </div>
         <div className="comment-message px-1 py-1">
           <p>{comment.message}</p>
-          {this.props.commentData.depth > 6 ? null : (
-            <p
-              style={{
-                color: "#2196f3",
-                display: "flex",
-                justifyContent: "start",
-                cursor: "pointer",
-              }}
+          {this.props.commentData.depth > 4 ? null : (
+            <span
+              role="button"
+              tabIndex="0"
               onClick={this.replyToComment}
+              onKeyDown={this.replyToComment}
             >
               Reply
-            </p>
+            </span>
           )}
         </div>
         {this.state.replyClicked ? (

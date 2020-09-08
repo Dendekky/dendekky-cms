@@ -35,24 +35,63 @@
     }
 }
 
+.discussions {
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.comments-number {
+    font-size: x-large;
+    font-style: italic;
+    hyphens: auto;
+}
+
 .comment-title {
     display: flex;
-    justify-content: space-around;
-    // min-height: 25px;
+    justify-content: space-between;
+    align-items: flex-end;
+    .comment-user {
+        display: flex;
+        align-items: flex-end;   
+        div {
+            text-transform: capitalize;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    }
+    .comment-date {
+        font-size: small;
+    }
 }
 .comment-message {
     display: flex;
     flex-direction: column;
-    border: 1px solid #55555570;
+    word-wrap: break-word;
+    hyphens: auto;
     border-radius: 5px;
     p {
         margin-bottom: 0;
         padding-bottom: 0;
+    };
+    span {
+        color: #ce67078e;
+        cursor: pointer;
+    };
+}
+
+.reply-form {
+    margin-top: 24px;
+    h4 {
+        font-style: italic;
     }
 }
+
 .reply-input {
     margin-left: 10%;
 }
 .single-comment {
     margin: 0.5% 0;
+    background: rgb(236, 235, 235);
+    margin: 16px 0;
+    padding: 12px;
 }
