@@ -22,7 +22,7 @@ const Header = () => {
         <h2 className="">{blogTitle}</h2>
         <p className="m-0">{blogSubtitle}</p>
       </div>
-      <ul className="navbar sticky-top p-4">
+      <ul className="navbar sticky-top bg-white p-4">
         <li className={router.pathname === "/" ? "active" : ""}>
           <div
             role="button"
