@@ -46,16 +46,21 @@ function ViewPost({ post }) {
     name = null,
     message = null
   ) => {
-    setReplyState({
-      ...replyState,
-      isSubmit: true,
-    })
-    if (replyComment === false && item.comment === "") {
-      return
+    e.preventDefault()
+    if (replyComment === false) {
+      setReplyState({
+        ...replyState,
+        isSubmit: true,
+      })
     }
-    if (replyComment && message === "") {
-      return
-    }
+    // if (replyComment === false && item.comment === "") {
+    //   console.log("hello")
+    //   return
+    // }
+    // if (replyComment && message === "") {
+    //   console.log("world")
+    //   return
+    // }
     const data = {
       postId: post._id,
       name: replyComment === true ? name : item.name,
@@ -69,12 +74,14 @@ function ViewPost({ post }) {
       .post("/api/comment", data)
       .then((res) => {
         if (res.status === 201) {
-          setReplyState({
-            ...replyState,
-            alert: true,
-            alertColor: "success",
-            alertMessage: res.data.message,
-          })
+          if (replyComment === false) {
+            setReplyState({
+              ...replyState,
+              alert: true,
+              alertColor: "success",
+              alertMessage: res.data.message,
+            })
+          }
           http
             .get(`/api/post/${post._id}`)
             .then((response) => {
@@ -91,18 +98,22 @@ function ViewPost({ post }) {
               errorText += error.msg
             })
           const errorMessage = res.data.message || errorText
-          setReplyState({
-            ...replyState,
-            alert: true,
-            alertColor: "warning",
-            alertMessage: errorMessage,
-          })
+          if (replyComment === false) {
+            setReplyState({
+              ...replyState,
+              alert: true,
+              alertColor: "warning",
+              alertMessage: errorMessage,
+            })
+          }
         }
       })
       .catch((error) => console.log(error))
       .finally(() => {
         setTimeout(() => {
-          setReplyState({ alert: false })
+          if (replyComment === false) {
+            setReplyState({ alert: false, isSubmit: false })
+          }
         }, 5000)
       })
   }
@@ -190,7 +201,7 @@ function ViewPost({ post }) {
                       </div>
                       <div>{comments}</div>
                     </div>
-                    <Form>
+                    <Form onSubmit={addComment}>
                       <Row className="reply-form">
                         <Col sm="12" md="12" lg="12">
                           <h4>Leave a Reply</h4>
@@ -207,6 +218,7 @@ function ViewPost({ post }) {
                             name="name"
                             type="text"
                             onChange={onChange}
+                            required
                           />
                         </Col>
                         <Col sm="12" md="12" lg="12">
@@ -218,6 +230,7 @@ function ViewPost({ post }) {
                             placeholder="Type your comment..."
                             style={{ width: "100%" }}
                             onChange={onChange}
+                            required
                           />
                         </Col>
                         <Col className="mt-2">
@@ -227,7 +240,7 @@ function ViewPost({ post }) {
                             variant="contained"
                             disabled={replyState.isSubmit}
                             // outline
-                            onClick={addComment}
+                            // onClick={addComment}
                           >
                             {replyState.isSubmit && <span>submitting...</span>}
                             {!replyState.isSubmit && <span>Submit!</span>}
@@ -259,6 +272,11 @@ function ViewPost({ post }) {
                   src={require("../../assets/logo/twitter.svg")}
                 />
               </a>
+              <script
+                async
+                src="https://platform.twitter.com/widgets.js"
+                charSet="utf-8"
+              />
               <a
                 href={`https://wa.me/?text=https://marblesofhameedah.rocks/post/${post._id}`}
                 target="_blank"

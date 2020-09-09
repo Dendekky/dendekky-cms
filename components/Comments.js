@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, FormInput, FormTextarea, Row, Col } from "shards-react"
+import { Button, FormInput, FormTextarea, Row, Col, Form } from "shards-react"
 
 class Comment extends Component {
   constructor(props) {
@@ -30,9 +30,9 @@ class Comment extends Component {
     })
   }
 
-  replySumbit = (parentComment) => {
+  replySumbit = (parentComment) => (e) => {
     this.props.addComment(
-      null,
+      e,
       true,
       parentComment,
       this.state.name,
@@ -81,47 +81,49 @@ class Comment extends Component {
         </div>
         {this.state.replyClicked ? (
           <div className="reply-FormInput">
-            <Row>
-              <Col sm="6" md="6" lg="6">
-                <label htmlFor="name">Name</label>
-                <FormInput
-                  value={this.state.name}
-                  name="name"
-                  type="text"
-                  onChange={this.typeComment}
-                />
-              </Col>
-              <Col sm="12" md="12" lg="12">
-                <label htmlFor="comment">Comment</label>
-                <FormTextarea
-                  name="comment"
-                  value={this.state.comment}
-                  placeholder="Type your comment..."
-                  style={{ width: "100%" }}
-                  onChange={this.typeComment}
-                />
-              </Col>
-            </Row>
-            <div className="comment-action">
-              <Button
-                size="small"
-                color="primary"
-                variant="contained"
-                style={replyActionsStyle}
-                onClick={() => this.replySumbit(comment)}
-              >
-                Submit
-              </Button>
-              <Button
-                size="small"
-                color="primary"
-                variant="contained"
-                style={replyActionsStyle}
-                onClick={this.replyCancel}
-              >
-                Cancel
-              </Button>
-            </div>
+            <Form onSubmit={this.replySumbit(comment)}>
+              <Row>
+                <Col sm="6" md="6" lg="6">
+                  <label htmlFor="name">Name</label>
+                  <FormInput
+                    value={this.state.name}
+                    name="name"
+                    type="text"
+                    onChange={this.typeComment}
+                  />
+                </Col>
+                <Col sm="12" md="12" lg="12">
+                  <label htmlFor="comment">Comment</label>
+                  <FormTextarea
+                    name="comment"
+                    value={this.state.comment}
+                    placeholder="Type your comment..."
+                    style={{ width: "100%" }}
+                    onChange={this.typeComment}
+                  />
+                </Col>
+              </Row>
+              <div className="comment-action">
+                <Button
+                  size="small"
+                  color="primary"
+                  variant="contained"
+                  style={replyActionsStyle}
+                  // onClick={() => this.replySumbit(comment)}
+                >
+                  Submit
+                </Button>
+                <Button
+                  size="small"
+                  color="primary"
+                  variant="contained"
+                  style={replyActionsStyle}
+                  onClick={this.replyCancel}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </Form>
           </div>
         ) : (
           ""
