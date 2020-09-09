@@ -1,18 +1,17 @@
 /* eslint-disable no-nested-ternary */
 import Head from "next/head"
+import { blogTitle, blogSubtitle, headerBg, siteUrl } from "../../user.json"
 
 const PageMetadata = ({ title, id, category, tag, image }) => {
   const URL = id
-    ? `https://marblesofhameedah.rocks/post/${id}`
+    ? `${siteUrl}/post/${id}`
     : tag
-    ? `https://marblesofhameedah.rocks/tags/${tag}`
+    ? `${siteUrl}/tags/${tag}`
     : category
-    ? `https://marblesofhameedah.rocks/category/${category}`
-    : `https://marblesofhameedah.rocks/`
+    ? `${siteUrl}/category/${category}`
+    : siteUrl
 
-  const IMAGE = id
-    ? image
-    : "https://res.cloudinary.com/dendekky/image/upload/c_scale,q_80/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
+  const IMAGE = id ? image : headerBg
 
   return (
     <Head>
@@ -23,16 +22,8 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content={URL} />
       <meta property="og:image" content={IMAGE} />
-      <meta
-        property="og:site_name"
-        content="Marbles Of Hameedah"
-        key="ogsitename"
-      />
-      <meta
-        property="og:description"
-        content="A digital chest of my best thoughts and opinions. Marbles, I call them. From Poetry, to Politics, to the everyday happenstances of life. And of course, the occasional travel documentary."
-        key="ogdesc"
-      />
+      <meta property="og:site_name" content={blogTitle} key="ogsitename" />
+      <meta property="og:description" content={blogSubtitle} key="ogdesc" />
     </Head>
   )
 }
