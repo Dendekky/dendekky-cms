@@ -32,3 +32,25 @@
         font-size: 20px;
     }
 }
+
+.navbar {
+    list-style-type: none;
+    // text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    div {
+        color: #101113;
+        font-size: large;
+        font-weight: bold;
+        &:hover {
+            color: lightcoral;
+            cursor: pointer;
+        }
+    }
+    .active {
+        text-decoration: underline;
+        div {
+            color: lightcoral;
+        }
+    }
+}
