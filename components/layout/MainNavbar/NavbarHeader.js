@@ -10,6 +10,7 @@ import {
   Collapse,
 } from "shards-react"
 import classnames from "classnames"
+import { blogTitle, blogSubtitle, userAvatar, welcomeMessage } from "../../../user.json"
 
 const Header = () => {
   const [collapseOpen, setCollapseOpen] = useState(false)
@@ -23,12 +24,8 @@ const Header = () => {
   return (
     <>
       <div className="header-image">
-        <h2 className="">Meedah's Marbles</h2>
-        <p className="m-0">
-          A digital chest of my best thoughts and opinions. Marbles, I call
-          them. From Poetry, to Politics, to the everyday happenstances of life.
-          And of course, the occasional travel documentary.
-        </p>
+        <h2 className="">{blogTitle}</h2>
+        <p className="m-0">{blogSubtitle}</p>
       </div>
       <Navbar
         type="light"
@@ -92,11 +89,11 @@ const Header = () => {
                 height: "30px",
                 borderRadius: "50%",
               }}
-              src="https://res.cloudinary.com/dendekky/image/upload/c_scale,h_336,q_25,f_auto/v1595318921/0_uoa7bf.jpg"
+              src={userAvatar}
               alt="User Avatar"
             />{" "}
             <span className="d-none d-sm-inline-block ml-1">
-              Welcome to Meedah's Marble
+              {welcomeMessage}
             </span>
           </Nav>
         </Collapse>
