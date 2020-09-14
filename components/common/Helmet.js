@@ -12,7 +12,7 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
     : siteUrl
 
   const IMAGE = id ? image : headerBg
-  const description = title || blogSubtitle
+  const description = `${blogTitle} - ${title}` || `${blogTitle} - ${blogSubtitle}`
 
   return (
     <Head>
