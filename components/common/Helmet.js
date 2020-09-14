@@ -12,12 +12,15 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
     : siteUrl
 
   const IMAGE = id ? image : headerBg
+  const description = title || blogSubtitle
 
   return (
     <Head>
+      <title>{`${title} | MarblesOfHameedah`}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>{`${title} | MarblesOfHameedah`}</title>
+      <meta name="description" content={description} />
+
       <meta property="og:title" content={title} key="ogtitle" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={URL} />
