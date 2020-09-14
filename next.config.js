@@ -1,5 +1,12 @@
 const withSass = require("@zeit/next-sass")
 const withPurgeCss = require("next-purgecss")
+const withPWA = require("next-pwa")
+
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+  },
+})
 
 module.exports = withSass(withPurgeCss())
 const withImages = require("next-images")
