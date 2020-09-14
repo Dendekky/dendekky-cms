@@ -12,7 +12,8 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
     : siteUrl
 
   const IMAGE = id ? image : headerBg
-  const description = `${blogTitle} - ${title}` || `${blogTitle} - ${blogSubtitle}`
+  const description =
+    `${blogTitle} - ${title}` || `${blogTitle} - ${blogSubtitle}`
 
   return (
     <Head>
@@ -20,6 +21,35 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content={description} />
+
+      <link rel="manifest" href="/public/manifest.json" />
+      <link
+        href="/public/icon/favicon-16x16-dunplab-manifest-12814.png"
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+      />
+      <link
+        href="/public/icon/favicon-32x32-dunplab-manifest-12814.png"
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="/public/icon/apple-icon-180x180-dunplab-manifest-12814.png"
+      />
+      <meta name="theme-color" content="#f32167" />
+
+      {/* <meta name="theme-color" content="#f32167" />
+      <link
+        rel="apple-touch-icon"
+        href="/public/icon/apple-icon-180x180-dunplab-manifest-12814.png"
+      />
+      <meta name="apple-mobile-web-app-title" content={description} />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" /> */}
 
       <meta property="og:title" content={title} key="ogtitle" />
       <meta property="og:type" content="website" />

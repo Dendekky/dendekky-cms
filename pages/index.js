@@ -146,11 +146,7 @@ function BlogPosts({ posts }) {
                   </div>
                   <CardBody id={`post-${post._id}`}>
                     <h4 className="card-title">
-                      <Link
-                        prefetch
-                        href={`/post/${post._id}`}
-                        as={`/post/${post._id}`}
-                      >
+                      <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
                         <a className="text-fiord-blue">
                           {trimmedPostBody(post.title, 50)}
                         </a>
