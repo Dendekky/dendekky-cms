@@ -11,6 +11,11 @@
   "orientation": "any",
   "icons": [
     {
+      "src": "/icon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
       "src": "/icon/android-icon-192x192-dunplab-manifest-12814.png",
       "type": "image/png",
       "sizes": "192x192"
