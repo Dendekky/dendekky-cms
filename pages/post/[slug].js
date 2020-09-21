@@ -152,7 +152,7 @@ function ViewPost({ post }) {
   // }
   return (
     <div className="blogpost">
-      <PageMetadata title={post.title} id={post._id} image={post.postImage} />
+      <PageMetadata title={post.title} id={post.slug} image={post.postImage} />
       <Container fluid className="main-content-container px-4 pb-4">
         <Row>
           <Col md="12" lg="8">

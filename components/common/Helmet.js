@@ -11,7 +11,7 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
     ? `${siteUrl}/category/${category}`
     : siteUrl
 
-  const IMAGE = id ? image : headerBg
+  const IMAGE = image || headerBg
   const description =
     `${blogTitle} - ${title}` || `${blogTitle} - ${blogSubtitle}`
 

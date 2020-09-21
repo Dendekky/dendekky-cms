@@ -1,12 +1,15 @@
 import React from "react"
 import { Container, Row, Col } from "shards-react"
 
+import { userAvatar } from "../user.json"
+import PageMetadata from "../components/common/Helmet"
 import PageTitle from "../components/common/PageTitle"
 import UserDetails from "../components/user-profile/UserDetails"
 import UserAbout from "../components/user-profile/UserAbout"
 
 const UserProfile = () => (
   <Container fluid className="main-content-container px-4">
+    <PageMetadata title="About" image={userAvatar} />
     <Row noGutters className="page-header py-4">
       <PageTitle
         title="Writer Profile"

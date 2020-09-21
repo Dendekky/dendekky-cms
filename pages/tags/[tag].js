@@ -118,10 +118,7 @@ function TaggedPosts({ posts, tag, allPosts }) {
 
   return (
     <Container fluid className="main-content-container px-4">
-      <PageMetadata
-        title={`Tag - ${tag}`}
-        image="https://res.cloudinary.com/dendekky/image/upload/c_scale,q_80/v1580633211/Beenah's/hannah-jacobson-pTfdcT0hxGc-unsplash_telwfc.jpg"
-      />
+      <PageMetadata title={`Tag - ${tag}`} />
       <Row noGutters className="page-header py-4">
         <PageTitle sm="4" title={tag} subtitle="Tag" className="text-sm-left" />
       </Row>
