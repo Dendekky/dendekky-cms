@@ -83,7 +83,7 @@ function ViewPost({ post }) {
             })
           }
           http
-            .get(`/api/post/${post._id}`)
+            .get(`/api/post/${post.slug}`)
             .then((response) => {
               setPostWithUpdatedComment(response.data)
               setItem({ ...item, name: "", comment: "" })
@@ -278,7 +278,7 @@ function ViewPost({ post }) {
                 charSet="utf-8"
               />
               <a
-                href={`https://wa.me/?text=https://marblesofhameedah.rocks/post/${post._id}`}
+                href={`https://wa.me/?text=https://marblesofhameedah.rocks/post/${post.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -288,7 +288,7 @@ function ViewPost({ post }) {
                 />
               </a>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://marblesofhameedah.rocks/post/${post._id}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=https://marblesofhameedah.rocks/post/${post.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -298,7 +298,7 @@ function ViewPost({ post }) {
                 />
               </a>
               <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=https://marblesofhameedah.rocks/post/${post._id}&title=${post.title}&summary=${post.title}`}
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=https://marblesofhameedah.rocks/post/${post.slug}&title=${post.title}&summary=${post.title}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -318,8 +318,8 @@ function ViewPost({ post }) {
                 {post.relatedPosts.map((val) => (
                   <Link
                     key={val._id}
-                    href={`/post/${val._id}`}
-                    as={`/post/${val._id}`}
+                    href={`/post/${val.slug}`}
+                    as={`/post/${val.slug}`}
                   >
                     <a className="text-decoration-none text-fiord-blue">
                       <Col
@@ -388,7 +388,7 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   // const paths = posts.map((post) => `/post/${post._id}`)
   const paths = posts.map((post) => ({
-    params: { id: post._id },
+    params: { slug: post.slug },
   }))
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
@@ -397,7 +397,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Call an external API endpoint to get posts
-  const res = await http.get(`/api/post/${params.id}`)
+  const res = await http.get(`/api/post/${params.slug}`)
   // console.log(res.data)
   const post = await res.data
 

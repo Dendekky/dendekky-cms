@@ -134,7 +134,7 @@ function BlogPosts({ posts }) {
         <Col md="9" lg="9">
           <Row>
             {posts.map((post, idx) => (
-              <Col lg="6" md="6" sm="12" className="mb-4" key={idx}>
+              <Col lg="6" md="6" sm="12" className="mb-4" key={post._id}>
                 <Card small className="card-post card-post--1">
                   <div
                     className="card-post__image"
@@ -146,7 +146,10 @@ function BlogPosts({ posts }) {
                   </div>
                   <CardBody id={`post-${post._id}`}>
                     <h4 className="card-title">
-                      <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
+                      <Link
+                        href={`/post/${post.slug}`}
+                        as={`/post/${post.slug}`}
+                      >
                         <a className="text-fiord-blue">
                           {trimmedPostBody(post.title, 50)}
                         </a>
@@ -245,7 +248,7 @@ function BlogPosts({ posts }) {
                 alt="post"
               />
               <h4 className="">
-                <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
+                <Link href={`/post/${post.slug}`} as={`/post/${post.slug}`}>
                   <a className="text-decoration-none">
                     {trimmedPostBody(post.title, 20)}
                   </a>

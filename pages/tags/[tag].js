@@ -141,7 +141,10 @@ function TaggedPosts({ posts, tag, allPosts }) {
                   </div>
                   <CardBody id={`post-${post._id}`}>
                     <h4 className="card-title">
-                      <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
+                      <Link
+                        href={`/post/${post.slug}`}
+                        as={`/post/${post.slug}`}
+                      >
                         <a className="text-fiord-blue">
                           {trimmedPostBody(post.title, 50)}
                         </a>
@@ -239,7 +242,7 @@ function TaggedPosts({ posts, tag, allPosts }) {
                 alt="post"
               />
               <h4 className="">
-                <Link href={`/post/${post._id}`} as={`/post/${post._id}`}>
+                <Link href={`/post/${post.slug}`} as={`/post/${post.slug}`}>
                   <a className="text-decoration-none">
                     {trimmedPostBody(post.title, 20)}
                   </a>
