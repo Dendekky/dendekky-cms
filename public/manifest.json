@@ -3,13 +3,18 @@
   "name": "Marbles Of Hameedah",
   "lang": "en",
   "description": "A digital chest of my best thoughts and opinions. Marbles, I call them. From Poetry, to Politics, to the everyday happenstances of life. And of course, the occasional travel documentary.",
-  "start_url": ".",
+  "start_url": "/",
   "background_color": "#2196f3",
   "theme_color": "#f32167",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "any",
   "icons": [
+    {
+      "src": "/icon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
     {
       "src": "/icon/android-icon-192x192-dunplab-manifest-12814.png",
       "type": "image/png",
