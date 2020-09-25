@@ -54,3 +54,12 @@
         }
     }
 }
+
+.beat {
+    color: red;
+    animation: beat .75s infinite alternate;
+}
+
+@keyframes beat {
+	to { transform: scale(1.4); }
+}
