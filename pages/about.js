@@ -4,7 +4,6 @@ import { Container, Row, Col } from "shards-react"
 import { userAvatar } from "../user.json"
 import PageMetadata from "../components/common/Helmet"
 import PageTitle from "../components/common/PageTitle"
-import UserDetails from "../components/user-profile/UserDetails"
 import UserAbout from "../components/user-profile/UserAbout"
 
 const UserProfile = () => (
@@ -19,10 +18,7 @@ const UserProfile = () => (
       />
     </Row>
     <Row>
-      <Col lg="4">
-        <UserDetails />
-      </Col>
-      <Col lg="8">
+      <Col>
         <UserAbout />
       </Col>
     </Row>

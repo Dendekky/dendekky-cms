@@ -25,6 +25,9 @@ const MainFooter = ({ contained, menuItems, copyright }) => (
           ))}
         </Nav>
         <span className="copyright ml-auto my-auto mr-2">{copyright}</span>
+        <span>
+          <i className="fa fa-heart fa-2x beat" />
+        </span>
       </Row>
     </Container>
   </footer>
@@ -51,11 +54,7 @@ MainFooter.defaultProps = {
   menuItems: [
     {
       title: "Home",
-      to: "#",
-    },
-    {
-      title: "Twitter",
-      to: "https://twitter.com/thehameedah",
+      to: "/#",
     },
     {
       title: "Instagram",
