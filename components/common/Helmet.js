@@ -20,7 +20,10 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
       <title>{`${title} | MarblesOfHameedah`}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="google-site-verification" content="Cgvb_6lzpqSLvjl7hB3wf20urDg3N5EEePTjk4Q7TMk" />
+      <meta
+        name="google-site-verification"
+        content="Cgvb_6lzpqSLvjl7hB3wf20urDg3N5EEePTjk4Q7TMk"
+      />
       <meta name="description" content={description} />
 
       <link rel="manifest" href="/manifest.json" />

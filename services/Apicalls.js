@@ -2,7 +2,8 @@ import Axios from "axios"
 // import { history } from "../history"
 
 export default new (class http {
-  API_URL = "https://marblesofhameedah.herokuapp.com"
+  // API_URL = "https://marblesofhameedah.herokuapp.com"
+  API_URL = "http://localhost:5000"
 
   AxiosSetup = () => {
     const axiosInstance = Axios.create({

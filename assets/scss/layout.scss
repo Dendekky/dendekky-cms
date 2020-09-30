@@ -33,6 +33,24 @@
     }
 }
 
+.sidebar-items{
+    list-style-type: none;
+    div {
+        display: flex;
+        margin: 20px 0;
+        color: #202225;
+        font-size: normal;
+        font-weight: bold;
+        &:hover {
+            color: lightcoral;
+            cursor: pointer;
+        }
+    }
+    .active {
+        text-decoration: underline;
+        color: lightcoral;
+    }
+}
 .navbar {
     list-style-type: none;
     // text-align: center;

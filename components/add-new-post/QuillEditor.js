@@ -1,22 +1,47 @@
-import React, { useState, useEffect } from "react"
-import ReactQuill from "react-quill"
+import React from "react"
+import ReactQuill, { Quill } from "react-quill"
+import CKEditor from "@ckeditor/ckeditor5-react"
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 
 const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
+  const Size = Quill.import("formats/size")
+  Size.whitelist = ["extra-small", "small", "medium", "large"]
+  Quill.register(Size, true)
+
+  // Add fonts to whitelist and register them
+  const Font = Quill.import("formats/font")
+  Font.whitelist = [
+    "arial",
+    "comic-sans",
+    "courier-new",
+    "georgia",
+    "helvetica",
+    "lucida",
+  ]
+  Quill.register(Font, true)
+
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["link", "image"],
+      [{ font: [] }],
+      [{ size: ["small", false, "large", "huge"] }], // custom dropdown
       ["bold", "italic", "underline", "strike"], // toggled buttons
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { script: "sub" }, // superscript/subscript
+        { script: "super" },
+      ],
+
       ["blockquote", "code-block"],
 
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ script: "sub" }, { script: "super" }], // superscript/subscript
-      [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-      [{ direction: "rtl" }], // text direction
+      [{ align: [] }, { indent: "-1" }, { indent: "+1" }], // outdent/indent
 
       [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-      [{ font: [] }],
-      [{ align: [] }],
+
+      ["link", "image", "video"],
+
+      [{ direction: "rtl" }], // text direction
 
       ["clean"],
     ],
@@ -25,6 +50,7 @@ const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
   const formats = [
     "header",
     "bold",
+    "size",
     "italic",
     "underline",
     "strike",
@@ -42,6 +68,7 @@ const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
     "clean",
     "link",
     "image",
+    "video",
   ]
 
   return (
@@ -50,12 +77,32 @@ const QuillWYSIWYG = ({ id, setRawHtml, value }) => {
       modules={modules}
       formats={formats}
       id={id}
-      // name="rawHtml"
       value={value}
       onChange={setRawHtml}
       className="add-new-post__editor mb-1"
     />
   )
 }
+
+export const CKWYSIWYG = () => (
+  <CKEditor
+    editor={ClassicEditor}
+    data="<p>Hello from CKEditor 5!</p>"
+    onInit={(editor) => {
+      // You can store the "editor" and use when it is needed.
+      console.log("Editor is ready to use!", editor)
+    }}
+    onChange={(event, editor) => {
+      const data = editor.getData()
+      console.log({ event, editor, data })
+    }}
+    onBlur={(event, editor) => {
+      console.log("Blur.", editor)
+    }}
+    onFocus={(event, editor) => {
+      console.log("Focus.", editor)
+    }}
+  />
+)
 
 export default QuillWYSIWYG
