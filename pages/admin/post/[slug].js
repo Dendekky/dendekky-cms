@@ -6,25 +6,25 @@ import { Container, Row, Col } from "shards-react"
 
 import http from "../../../services/Apicalls"
 import PageTitle from "../../../components/common/PageTitle"
-import DraftDeleteAction from "../../../components/add-new-post/DraftDeleteAction"
+import ViewDeleteAction from "../../../components/add-new-post/ViewDeleteAction"
 
-const DraftPreview = () => {
+const BlogInfo = () => {
   const [post, setPost] = useState({})
   const [loading, setLoading] = useState(true)
 
   const router = useRouter()
-  const { id } = router.query
+  const { slug } = router.query
 
   useEffect(() => {
-    if (id) {
+    if (slug) {
       const fetchData = async () => {
-        const postData = await http.get(`/api/draft/${id}`)
-        setPost(postData.data.draft)
+        const postData = await http.get(`/api/post/${slug}`)
+        setPost(postData.data)
         setLoading(false)
       }
       fetchData()
     }
-  }, [id])
+  }, [slug])
 
   if (loading) {
     return <p>loading....</p>
@@ -50,10 +50,12 @@ const DraftPreview = () => {
               style={{ wordWrap: "break-word" }}
               dangerouslySetInnerHTML={{ __html: post.body }}
             />
-            <p>Created on: {new Date(post.updatedAt).toDateString()}</p>
+            {/* <p>{post.body}</p> */}
+            <p>Published on: {new Date(post.updatedAt).toDateString()}</p>
+            {/* <h3>{post.comments ? post.comments.length : 0} Comments</h3> */}
           </Col>
           <Col lg="3" md="3">
-            <DraftDeleteAction editDraft id={post._id} post={post} />
+            <ViewDeleteAction id={post._id} />
           </Col>
         </Row>
       </Container>
@@ -61,4 +63,4 @@ const DraftPreview = () => {
   )
 }
 
-export default DraftPreview
+export default BlogInfo

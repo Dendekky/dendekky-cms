@@ -1,8 +1,7 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import React, { useState } from "react"
-import Axios from "axios"
-import { Redirect } from "react-router-dom"
+import { useRouter } from "next/router"
 import {
   Card,
   CardHeader,
@@ -15,16 +14,23 @@ import http from "../../services/Apicalls"
 import ErrorAlert from "../common/Alert"
 
 function SidebarActions({ post, postBody, postImage, info }) {
+  console.log(post)
   const [draftError, setDraftError] = useState(false)
   const [postError, setPostError] = useState(false)
   const [redirect, setRedirect] = useState(false)
 
-  const data = new FormData()
-  data.append("title", post.title)
-  data.append("category", post.category)
-  data.append("tags", post.tags)
-  data.append("body", postBody)
-  data.append("postImage", postImage)
+  const router = useRouter()
+
+  let data
+
+  if (typeof window !== "undefined") {
+    data = new FormData()
+    data.append("title", post.title)
+    data.append("category", post.category)
+    data.append("tags", post.tags)
+    data.append("body", postBody)
+    data.append("postImage", postImage)
+  }
 
   const config = {
     headers: { "content-type": "multipart/form-data" },
@@ -32,10 +38,8 @@ function SidebarActions({ post, postBody, postImage, info }) {
 
   const saveDraft = async (event) => {
     event.preventDefault()
-    const contents = Array.from(data.entries())
-    console.log(contents)
     http
-      .put(`/api/draft/${post.id}`, data, config)
+      .put(`/api/draft/${post._id}`, data, config)
       .then((res) => {
         if (res.status === 201) {
           setRedirect(true)
@@ -67,7 +71,7 @@ function SidebarActions({ post, postBody, postImage, info }) {
   }
 
   if (redirect) {
-    return <Redirect to="/admin-blog-posts" />
+    router.push("/admin/blog-posts")
   }
   return (
     <Card small className="mb-3">

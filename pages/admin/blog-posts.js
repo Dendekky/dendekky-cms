@@ -10,9 +10,9 @@ import {
   Button,
 } from "shards-react"
 import React, { useState, useEffect } from "react"
-import Link from 'next/link'
+import Link from "next/link"
 import LoadingAnimation from "../../components/common/Loading"
-import http from '../../services/Apicalls'
+import http from "../../services/Apicalls"
 import PageTitle from "../../components/common/PageTitle"
 
 // export async function getStaticProps() {
@@ -33,7 +33,7 @@ import PageTitle from "../../components/common/PageTitle"
 //   }
 // }
 
-function BlogPosts () {
+function BlogPosts() {
   const [blogPost, setBlogPosts] = useState([])
   const [blogDraft, setBlogDrafts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -81,16 +81,11 @@ function BlogPosts () {
               </div>
               <CardBody>
                 <h5 className="card-title">
-                  <Link
-                    href={`/post/${post._id}`}>
-                    <a className="text-fiord-blue">
-                    {post.title}
-                    </a>
+                  <Link href={`/admin/post/${post.slug}`}>
+                    <a className="text-fiord-blue">{post.title}</a>
                   </Link>
                 </h5>
-                <p className="card-text d-inline-block mb-3">
-                  {post.metadata}
-                </p>
+                <p className="card-text d-inline-block mb-3">{post.metadata}</p>
                 <span className="text-muted">{post.updatedAt}</span>
               </CardBody>
             </Card>
@@ -124,16 +119,11 @@ function BlogPosts () {
               </div>
               <CardBody>
                 <h5 className="card-title">
-                  <Link
-                    href={`/draft/${post._id}`}>
-                    <a>
-                      {post.title}
-                    </a>
+                  <Link href={`/admin/draft/${post._id}`}>
+                    <a>{post.title}</a>
                   </Link>
                 </h5>
-                <p className="card-text d-inline-block mb-3">
-                  {post.metadata}
-                </p>
+                <p className="card-text d-inline-block mb-3">{post.metadata}</p>
                 <p className="text-muted">Date: {post.updatedAt}</p>
               </CardBody>
             </Card>

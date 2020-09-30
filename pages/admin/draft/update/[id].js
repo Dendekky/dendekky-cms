@@ -1,5 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react"
+import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 import {
   Card,
   CardBody,
@@ -13,22 +14,25 @@ import {
   Col,
 } from "shards-react"
 import { useDropzone } from "react-dropzone"
+
+import http from "../../../../services/Apicalls"
 import PageTitle from "../../../../components/common/PageTitle"
-import QuillWYSIWYG from "../../../../components/add-new-post/QuillEditor"
 import UpdateDraft from "../../../../components/add-new-post/UpdateDraft"
 import DraftDeleteAction from "../../../../components/add-new-post/DraftDeleteAction"
 
+const QuillWYSIWYG = dynamic(
+  () => {
+    return import("../../../../components/add-new-post/QuillEditor")
+  },
+  { ssr: false }
+)
+
 const EditDraft = ({ location, match }) => {
-  const [item, setItem] = useState({
-    id: match.params.id,
-    title: location.state.post.post.title,
-    tags:  location.state.post.post.tags,
-    category: location.state.post.post.category,
-    metadata: location.state.post.post.metadata,
-    postImage: location.state.post.post.postImage,
-    errMessage: "",
-  })
-  const [rawHtml, setRawHtml] = useState(location.state.post.post.body)
+  const [item, setItem] = useState({})
+  const [rawHtml, setRawHtml] = useState()
+  const [postImage, setPostImage] = useState()
+  const [loading, setLoading] = useState(true)
+
   const [files, setFiles] = useState([])
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -43,13 +47,29 @@ const EditDraft = ({ location, match }) => {
     },
   })
 
+  const router = useRouter()
+  const { id } = router.query
+
+  useEffect(() => {
+    if (id) {
+      const fetchData = async () => {
+        const postData = await http.get(`/api/draft/${id}`)
+        setItem(postData.data.draft)
+        setRawHtml(postData.data.draft.body)
+        setPostImage(postData.data.draft.postImage)
+        setLoading(false)
+      }
+      fetchData()
+    }
+  }, [id])
+
   useEffect(
     () => () => {
       // Make sure to revoke the data uris to avoid memory leaks
       files.forEach((file) => URL.revokeObjectURL(file.preview))
       // Handles image upload to ensure the right file is submitted
       if (files) {
-        setItem({ ...item, postImage: "" })
+        setPostImage("")
       }
     },
     [files]
@@ -78,6 +98,10 @@ const EditDraft = ({ location, match }) => {
   const actionInfo = {
     status: "Draft",
     visibility: "Admin",
+  }
+
+  if (loading) {
+    return <p>loading....</p>
   }
 
   return (
@@ -176,12 +200,10 @@ const EditDraft = ({ location, match }) => {
               post={item}
               postBody={rawHtml}
               postImage={
-                item.postImage && item.postImage.length > 0
-                  ? item.postImage
-                  : files[0]
+                postImage && postImage.length > 0 ? postImage : files[0]
               }
             />
-            <DraftDeleteAction id={match.params.id} editDraft={false} />
+            <DraftDeleteAction id={id} editDraft={false} />
           </Col>
         </Row>
       </Container>

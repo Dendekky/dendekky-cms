@@ -1,17 +1,22 @@
 import React, { useState } from "react"
-import Axios from "axios"
-import { Redirect } from "react-router-dom"
-
+import { useRouter } from "next/router"
 import { Card, CardHeader, CardBody, ListGroup, Button } from "shards-react"
+
+import http from "../../services/Apicalls"
+
 
 function SidebarCategories(prop) {
   const [error, setError] = useState(false)
   const [redirect, setRedirect] = useState(false)
 
+  const router = useRouter()
+
+
   const deletePost = async (event) => {
     event.preventDefault()
 
-    Axios.delete(`https://marblesofhameedah.herokuapp.com/api/post/${prop.id}`)
+    http
+      .delete(`/api/post/${prop.id}`)
       .then((res) => {
         if (res.status === 200) {
           setRedirect(true)
@@ -24,7 +29,7 @@ function SidebarCategories(prop) {
   }
 
   if (redirect) {
-    return <Redirect to="/admin-blog-posts" />
+    router.push("/admin/blog-posts")
   }
 
   return (
