@@ -1,8 +1,7 @@
 import React, { useState } from "react"
-import Axios from "axios"
-import { Redirect, Link } from "react-router-dom"
-
-// import PropTypes from "prop-types";
+import Link from "next/link"
+import { useRouter } from "next/router"
+// import { Redirect, Link } from "react-router-dom"
 import {
   Card,
   CardHeader,
@@ -15,14 +14,20 @@ import {
   // FormCheckbox,
   // FormInput,
 } from "shards-react"
+import http from "../../services/Apicalls"
+
+// import PropTypes from "prop-types";
 
 function DraftDeleteAction({ id, editDraft, post }) {
   const [error, setError] = useState(false)
   const [redirect, setRedirect] = useState(false)
 
+  const router = useRouter()
+
   const deletePost = async (event) => {
     event.preventDefault()
-    Axios.delete(`https://marblesofhameedah.herokuapp.com/api/draft/${id}`)
+    http
+      .delete(`/api/draft/${id}`)
       .then((res) => {
         if (res.status === 200) {
           setRedirect(true)
@@ -35,7 +40,7 @@ function DraftDeleteAction({ id, editDraft, post }) {
   }
 
   if (redirect) {
-    return <Redirect to="/blog-posts" />
+    router.push("/admin/blog-posts")
   }
 
   return (
@@ -47,20 +52,9 @@ function DraftDeleteAction({ id, editDraft, post }) {
         <ListGroup flush>
           <ListGroupItem className="d-flex px-3 pt-1 border-0">
             {editDraft ? (
-              <Button
-                outline
-                theme="accent"
-                size="sm"
-                tag={Link}
-                to={{
-                  pathname: `/draft/update/${id}`,
-                  state: {
-                    post: { post },
-                  },
-                }}
-              >
-                <i className="material-icons">edit</i> Edit Draft
-              </Button>
+              <Link tag={Link} href={`/admin/draft/update/${id}`}>
+                Edit Draft
+              </Link>
             ) : null}
             <Button
               outline
@@ -69,7 +63,7 @@ function DraftDeleteAction({ id, editDraft, post }) {
               className="ml-auto"
               onClick={deletePost}
             >
-              <i className="material-icons">Delete</i> Delete Draft
+              Delete Draft
             </Button>
           </ListGroupItem>
         </ListGroup>

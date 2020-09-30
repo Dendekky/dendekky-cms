@@ -10,6 +10,8 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^22.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "ag-grid-community": "^23.2.1",
@@ -25,6 +27,7 @@
     "next-images": "^1.4.1",
     "next-pwa": "^3.1.4",
     "node-sass": "^4.14.1",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

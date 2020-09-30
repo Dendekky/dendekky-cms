@@ -19,12 +19,16 @@ function SaveNewDraft({ post, postBody, postImage, info }) {
   const [postError, setPostError] = useState(false)
   const [redirect, setRedirect] = useState(false)
 
-  const data = new FormData()
-  data.append("title", post.title)
-  data.append("category", post.category)
-  data.append("tags", post.tags)
-  data.append("body", postBody)
-  data.append("postImage", postImage)
+  let data
+
+  if (typeof window !== "undefined") {
+    data = new FormData()
+    data.append("title", post.title)
+    data.append("category", post.category)
+    data.append("tags", post.tags)
+    data.append("body", postBody)
+    data.append("postImage", postImage)
+  }
 
   const config = {
     headers: { "content-type": "multipart/form-data" },
@@ -52,7 +56,7 @@ function SaveNewDraft({ post, postBody, postImage, info }) {
 
   const publishPost = async (event) => {
     event.preventDefault()
-    console.log(data)
+    // console.log(data)
 
     http
       .post("/api/post", data, config)

@@ -3,6 +3,7 @@ import Axios from "axios"
 
 export default new (class http {
   API_URL = "https://marblesofhameedah.herokuapp.com"
+  // API_URL = "http://localhost:5000"
 
   AxiosSetup = () => {
     const axiosInstance = Axios.create({
