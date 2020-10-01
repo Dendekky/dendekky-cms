@@ -1,7 +1,8 @@
+import "nprogress/nprogress.css"
+
 // import '../styles/globals.css'
 // import Head from 'next/head'
 // import "bootstrap/dist/css/bootstrap.min.css"
-import "nprogress/nprogress.css"
 // import "bootstrap/scss/bootstrap.scss"
 // import "shards-ui/src/scss/shards.scss"
 
