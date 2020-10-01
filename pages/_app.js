@@ -9,7 +9,7 @@ import dynamic from "next/dynamic"
 import { MainLayout, AdminLayout } from "../components/layout"
 
 import "../assets/scss/index.scss"
-// import "react-quill/dist/quill.snow.css"
+import "react-quill/dist/quill.snow.css"
 
 const TopProgressBar = dynamic(
   () => {
