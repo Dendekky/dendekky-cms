@@ -15,7 +15,7 @@ import {
   DropdownItem,
   FormInput,
 } from "shards-react"
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 import { Eye, ChevronDown } from "react-feather"
 import http from "../../services/Apicalls"
 import LoadingAnimation from "../../components/common/Loading"
@@ -73,9 +73,7 @@ const BlogTable = (props) => {
               color="info"
               size="sm"
               className="mr-50"
-              onClick={() =>
-                router.push(`/admin/draft/${params.data._id}`)
-              }
+              onClick={() => router.push(`/admin/draft/${params.data._id}`)}
             >
               <Eye size={10} />
               <span className="align-middle ml-50">View</span>
@@ -128,9 +126,7 @@ const BlogTable = (props) => {
               color="info"
               size="sm"
               className="mr-50"
-              onClick={() =>
-                router.push(`/admin/post/${params.data._id}`)
-              }
+              onClick={() => router.push(`/admin/post/${params.data.slug}`)}
             >
               <Eye size={10} />
               <span className="align-middle ml-50">View</span>

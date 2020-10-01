@@ -1,16 +1,12 @@
 import "nprogress/nprogress.css"
-
+import dynamic from "next/dynamic"
 // import '../styles/globals.css'
-// import Head from 'next/head'
 // import "bootstrap/dist/css/bootstrap.min.css"
 // import "bootstrap/scss/bootstrap.scss"
-// import "shards-ui/src/scss/shards.scss"
 
-import dynamic from "next/dynamic"
 import { MainLayout, AdminLayout } from "../components/layout"
 
 import "../assets/scss/index.scss"
-// import "react-quill/dist/quill.snow.css"
 
 const TopProgressBar = dynamic(
   () => {

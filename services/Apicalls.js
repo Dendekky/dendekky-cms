@@ -1,38 +1,23 @@
 import Axios from "axios"
-// import { history } from "../history"
+import { getCookie } from "./Cookie"
 
 export default new (class http {
   // API_URL = "https://marblesofhameedah.herokuapp.com"
   API_URL = "http://localhost:5000"
 
+  AUTHTOKEN = getCookie("token")
+
   AxiosSetup = () => {
     const axiosInstance = Axios.create({
       baseURL: this.API_URL,
     })
-
+    axiosInstance.defaults.headers.common.Authorization = this.AUTHTOKEN
     axiosInstance.interceptors.response.use(
       (response) => {
         return response
       },
       (error) => {
-        // if (
-        //   error.config.url !== "/api/auth/login" &&
-        //   error.response &&
-        //   error.response.status === 401
-        // ) {
-        //   dispatch({
-        //     type: "ERROR_401_TRUE",
-        //     error: true,
-        //   })
-        //   return error
-        // }
-        if (error.response && error.response.status === 422) {
-          return error.response
-        }
-        if (error.response && error.response.status === 500) {
-          return error.response
-        }
-        return Promise.reject(error)
+        return error.response
       }
     )
     return axiosInstance
