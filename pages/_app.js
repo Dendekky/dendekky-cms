@@ -3,6 +3,8 @@
 // import "bootstrap/dist/css/bootstrap.min.css"
 import "nprogress/nprogress.css"
 import "bootstrap/scss/bootstrap.scss"
+// import "shards-ui/src/scss/shards.scss"
+
 import dynamic from "next/dynamic"
 import { MainLayout, AdminLayout } from "../components/layout"
 
