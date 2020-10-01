@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 // import "bootstrap/scss/bootstrap.scss"
 
 import { MainLayout, AdminLayout } from "../components/layout"
+// import PrivateRoute from "../components/PrivateRoute"
 
 import "../assets/scss/index.scss"
 
