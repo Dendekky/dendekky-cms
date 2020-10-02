@@ -4,13 +4,11 @@ import { Card, CardHeader, CardBody, ListGroup, Button } from "shards-react"
 
 import http from "../../services/Apicalls"
 
-
 function SidebarCategories(prop) {
   const [error, setError] = useState(false)
   const [redirect, setRedirect] = useState(false)
 
   const router = useRouter()
-
 
   const deletePost = async (event) => {
     event.preventDefault()

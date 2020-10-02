@@ -33,7 +33,7 @@ export const AdminLayout = ({ children, noNavbar, noFooter }) => (
         sm="12"
         tag="main"
       >
-      {/* <Col className="main-content p-0" sm="12" tag="main"> */}
+        {/* <Col className="main-content p-0" sm="12" tag="main"> */}
         {!noNavbar && <AdminNavbar />}
         {children}
         {!noFooter && <MainFooter />}
