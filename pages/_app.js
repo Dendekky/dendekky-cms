@@ -1,5 +1,5 @@
-import "nprogress/nprogress.css"
 import dynamic from "next/dynamic"
+import "nprogress/nprogress.css"
 // import '../styles/globals.css'
 // import "bootstrap/dist/css/bootstrap.min.css"
 // import "bootstrap/scss/bootstrap.scss"

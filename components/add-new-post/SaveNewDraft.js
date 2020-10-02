@@ -1,8 +1,8 @@
+import { useRouter } from "next/router"
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import React, { useState } from "react"
 // import Axios from "axios"
-import { Redirect } from "react-router-dom"
 import {
   Card,
   CardHeader,
@@ -18,6 +18,8 @@ function SaveNewDraft({ post, postBody, postImage, info }) {
   const [draftError, setDraftError] = useState(false)
   const [postError, setPostError] = useState(false)
   const [redirect, setRedirect] = useState(false)
+
+  const router = useRouter()
 
   let data
 
@@ -73,7 +75,7 @@ function SaveNewDraft({ post, postBody, postImage, info }) {
       })
   }
   if (redirect) {
-    return <Redirect to="/admin-blog-posts" />
+    router.push("/admin/blog-posts")
   }
   return (
     <Card small className="mb-3">
