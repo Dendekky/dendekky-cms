@@ -63,6 +63,7 @@ function ViewPost({ post }) {
     // }
     const data = {
       postId: post._id,
+      slug: post.slug,
       name: replyComment === true ? name : item.name,
       message: replyComment === true ? message : item.comment,
     }
