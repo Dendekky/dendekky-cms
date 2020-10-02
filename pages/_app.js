@@ -16,16 +16,16 @@ const TopProgressBar = dynamic(
   { ssr: false }
 )
 
-const ServiceWorker = () =>
-  dynamic(
-    () => {
-      return import("../serviceWorker").then((engine) => engine.register)
-    },
-    { ssr: false }
-  )
+// const ServiceWorker = () =>
+//   dynamic(
+//     () => {
+//       return import("../serviceWorker").then((engine) => engine.register)
+//     },
+//     { ssr: false }
+//   )
 
 function MyApp({ Component, pageProps, router }) {
-  ServiceWorker()
+  // ServiceWorker()
 
   if (router.pathname.startsWith("/admin/")) {
     return (
