@@ -8,9 +8,8 @@ import {
   CardBody,
   Form,
   FormGroup,
-  // FormSelect,
   FormInput,
-  // Button,
+  FormTextarea,
 } from "shards-react"
 import DropZone from "../../components/add-new-post/DropZone"
 import PageTitle from "../../components/common/PageTitle"
@@ -35,6 +34,7 @@ const AddNewPost = () => {
   const [rawHtml, setRawHtml] = useState("")
   const [item, setItem] = useState({
     title: "",
+    excerpt: "",
     category: "",
     tags: "",
   })
@@ -82,6 +82,18 @@ const AddNewPost = () => {
                       className="mb-3"
                       id="post-title"
                       placeholder="Your Post Title"
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <label htmlFor="post-excerpt">Post Excerpt</label>
+                    <FormTextarea
+                      name="excerpt"
+                      value={item.excerpt}
+                      onChange={onChange}
+                      size="lg"
+                      className="mb-3"
+                      id="post-excerpt"
+                      placeholder="Your Post Excerpt"
                     />
                   </FormGroup>
                   <FormGroup>
