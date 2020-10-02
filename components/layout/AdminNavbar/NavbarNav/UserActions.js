@@ -10,8 +10,9 @@ import {
   NavItem,
   NavLink,
 } from "shards-react"
-import { userAvatar } from "../../../../user.json"
 import { Power, User } from "react-feather"
+import { removeCookie } from "../../../../services/Cookie"
+import { userAvatar } from "../../../../user.json"
 
 export default class UserActions extends React.Component {
   constructor(props) {
@@ -53,9 +54,7 @@ export default class UserActions extends React.Component {
           </DropdownItem>
           <DropdownItem divider />
           <DropdownItem
-            onClick={() => {
-              if (typeof window !== "undefined") localStorage.clear()
-            }}
+            onClick={() => removeCookie("token")}
             className="text-danger"
           >
             <Link href="/" as="/">
