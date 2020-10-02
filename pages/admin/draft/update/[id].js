@@ -6,7 +6,7 @@ import {
   CardBody,
   Form,
   FormGroup,
-  // FormSelect,
+  FormTextarea,
   FormInput,
   // Button,
   Container,
@@ -132,6 +132,18 @@ const EditDraft = ({ location, match }) => {
                     />
                   </FormGroup>
                   <FormGroup>
+                    <label htmlFor="post-excerpt">Post Excerpt</label>
+                    <FormTextarea
+                      name="excerpt"
+                      value={item.excerpt}
+                      onChange={onChange}
+                      size="lg"
+                      className="mb-3"
+                      id="post-excerpt"
+                      placeholder="Your Post Excerpt"
+                    />
+                  </FormGroup>
+                  <FormGroup>
                     <label htmlFor="post-tags">Post Tags</label>
                     <FormInput
                       name="tags"
@@ -170,16 +182,6 @@ const EditDraft = ({ location, match }) => {
                       id="post-category"
                     />
                   </FormGroup>
-                  {/* <FormGroup>
-                    <FormInput
-                      name="metadata"
-                      value={item.metadata}
-                      onChange={onChange}
-                      size="lg"
-                      className="mb-3"
-                      placeholder="Blog Metadata"
-                    />
-                  </FormGroup> */}
                   <FormGroup>
                     <label htmlFor="post-content">Post Content</label>
                     <QuillWYSIWYG

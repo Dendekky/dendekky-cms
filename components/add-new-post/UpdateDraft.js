@@ -26,6 +26,7 @@ function SidebarActions({ post, postBody, postImage, info }) {
   if (typeof window !== "undefined") {
     data = new FormData()
     data.append("title", post.title)
+    data.append("excerpt", post.excerpt)
     data.append("category", post.category)
     data.append("tags", post.tags)
     data.append("body", postBody)
