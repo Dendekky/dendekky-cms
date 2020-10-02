@@ -1,5 +1,5 @@
-import "nprogress/nprogress.css"
 import dynamic from "next/dynamic"
+import "nprogress/nprogress.css"
 // import '../styles/globals.css'
 // import "bootstrap/dist/css/bootstrap.min.css"
 // import "bootstrap/scss/bootstrap.scss"
@@ -16,16 +16,16 @@ const TopProgressBar = dynamic(
   { ssr: false }
 )
 
-const ServiceWorker = () =>
-  dynamic(
-    () => {
-      return import("../serviceWorker").then((engine) => engine.register)
-    },
-    { ssr: false }
-  )
+// const ServiceWorker = () =>
+//   dynamic(
+//     () => {
+//       return import("../serviceWorker").then((engine) => engine.register)
+//     },
+//     { ssr: false }
+//   )
 
 function MyApp({ Component, pageProps, router }) {
-  ServiceWorker()
+  // ServiceWorker()
 
   if (router.pathname.startsWith("/admin/")) {
     return (
