@@ -76,6 +76,10 @@ const PageMetadata = ({ title, id, category, tag, image }) => {
         href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
         rel="stylesheet"
       />
+      <script 
+        data-ad-client="ca-pub-3189625615758304" 
+        async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" 
+      />
     </Head>
   )
 }
