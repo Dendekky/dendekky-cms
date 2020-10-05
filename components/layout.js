@@ -8,18 +8,22 @@ import AdminNavbar from "./layout/AdminNavbar/MainNavbar"
 import MainFooter from "./layout/MainFooter"
 import PageMetadata from "./common/Helmet"
 
-export const MainLayout = ({ children, noNavbar, noFooter }) => (
-  <Container fluid>
-    <PageMetadata title="Welcome" />
-    <Row>
-      <Col className="main-content p-0" sm="12" tag="main">
-        {!noNavbar && <MainNavbar />}
-        {children}
-        {!noFooter && <MainFooter />}
-      </Col>
-    </Row>
-  </Container>
-)
+export const MainLayout = ({ children, noNavbar, noFooter }) => {
+  const target = React.createRef()
+
+  return (
+    <Container fluid>
+      <PageMetadata title="Welcome" />
+      <Row>
+        <Col className="main-content p-0" sm="12" tag="main">
+          {!noNavbar && <MainNavbar readingBarRef={target} />}
+          <div ref={target}>{children}</div>
+          {!noFooter && <MainFooter />}
+        </Col>
+      </Row>
+    </Container>
+  )
+}
 
 export const AdminLayout = ({ children, noNavbar, noFooter }) => (
   <Container fluid>
