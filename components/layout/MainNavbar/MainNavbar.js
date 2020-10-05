@@ -1,7 +1,7 @@
 import Header from "./NavbarHeader"
 
-const MainNavbar = () => {
-  return <Header />
+const MainNavbar = ({ readingBarRef }) => {
+  return <Header readingBarRef={readingBarRef} />
 }
 
 export default MainNavbar

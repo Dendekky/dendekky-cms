@@ -73,6 +73,13 @@
     }
 }
 
+.reading-progress-bar {
+    position: sticky;
+    height: 5px;
+    top: 0;
+    background-color: lightcoral;
+}
+
 .beat {
     color: red;
     animation: beat .75s infinite alternate;
