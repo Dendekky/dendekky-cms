@@ -383,28 +383,12 @@ function ViewPost({ post }) {
   )
 }
 
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-  const res = await http.get(`/api/post`)
-  const posts = await res.data.posts
+export async function getServerSideProps({ params: { slug } }) {
+   // Call an external API endpoint to get posts
+   const res = await http.get(`/api/post/${slug}`)
+    const post = res.data
 
-  // Get the paths we want to pre-render based on posts
-  // const paths = posts.map((post) => `/post/${post._id}`)
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }))
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params }) {
-  // Call an external API endpoint to get posts
-  const res = await http.get(`/api/post/${params.slug}`)
-  // console.log(res.data)
-  const post = await res.data
-
-  // By returning { props: posts }, the Blog component
+ // By returning { props: posts }, the Blog component
   // will receive `post` as a prop at build time
   return {
     props: {
@@ -412,5 +396,6 @@ export async function getStaticProps({ params }) {
     },
   }
 }
+
 
 export default ViewPost
