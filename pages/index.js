@@ -11,12 +11,12 @@ import {
   FormGroup,
   FormInput,
   Alert,
-} from 'shards-react'
-import PageTitle from '../components/common/PageTitle'
-import PageMetadata from '../components/common/Helmet'
-import PostCard from '../components/PostCard'
-import http from '../services/Apicalls'
-import { trimmedPostBody } from '../utils/trimmedPostBody'
+} from "shards-react"
+import PageTitle from "../components/common/PageTitle"
+import PageMetadata from "../components/common/Helmet"
+import PostCard from "../components/PostCard"
+import http from "../services/Apicalls"
+import { trimmedPostBody } from "../utils/trimmedPostBody"
 
 function BlogPosts({ posts }) {
   const [reader, setReader] = useState({

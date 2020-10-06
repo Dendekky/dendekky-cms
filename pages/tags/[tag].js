@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react"
+import Link from "next/link"
 import {
   Container,
   Row,
@@ -11,22 +11,22 @@ import {
   FormGroup,
   FormInput,
   Alert,
-} from 'shards-react'
-import PageTitle from '../../components/common/PageTitle'
-import PageMetadata from '../../components/common/Helmet'
-import http from '../../services/Apicalls'
-import PostCard from '../../components/PostCard'
-import { trimmedPostBody } from '../../utils/trimmedPostBody'
+} from "shards-react"
+import PageTitle from "../../components/common/PageTitle"
+import PageMetadata from "../../components/common/Helmet"
+import http from "../../services/Apicalls"
+import PostCard from "../../components/PostCard"
+import { trimmedPostBody } from "../../utils/trimmedPostBody"
 
 function TaggedPosts({ posts, tag, allPosts }) {
   const [reader, setReader] = useState({
-    email: '',
+    email: "",
   })
   const [subscribedState, setSubscribedState] = useState({
     isSubmit: false,
     alert: false,
-    alertMessage: '',
-    alertColor: '',
+    alertMessage: "",
+    alertColor: "",
   })
 
   const postIdList = posts.map((post) => ({
@@ -59,18 +59,18 @@ function TaggedPosts({ posts, tag, allPosts }) {
     })
     e.preventDefault()
     http
-      .post('/api/subscribers', reader)
+      .post("/api/subscribers", reader)
       .then((res) => {
         if (res.status === 201) {
           setSubscribedState({
             ...subscribedState,
             alert: true,
-            alertColor: 'success',
+            alertColor: "success",
             alertMessage: res.data.message,
           })
-          setReader({ email: '' })
+          setReader({ email: "" })
         } else {
-          let errorText = ''
+          let errorText = ""
           if (res.data.errors)
             res.data.errors.forEach((error) => {
               errorText += error.msg
@@ -79,7 +79,7 @@ function TaggedPosts({ posts, tag, allPosts }) {
           setSubscribedState({
             ...subscribedState,
             alert: true,
-            alertColor: 'warning',
+            alertColor: "warning",
             alertMessage: errorMessage,
           })
         }
@@ -168,9 +168,9 @@ function TaggedPosts({ posts, tag, allPosts }) {
               <img
                 src={post.postImage}
                 style={{
-                  objectFit: 'cover',
-                  maxWidth: '100%',
-                  height: '100px',
+                  objectFit: "cover",
+                  maxWidth: "100%",
+                  height: "100px",
                 }}
                 alt="post"
               />
@@ -254,7 +254,7 @@ function TaggedPosts({ posts, tag, allPosts }) {
 export async function getServerSideProps({ params: { tag } }) {
   // Call an external API endpoint to get posts
   const res = await http.get(`/api/posts/tags/${tag}`)
-  const postsData = await http.get('/api/post')
+  const postsData = await http.get("/api/post")
   const posts = await res.data.posts.reverse()
   const allPosts = await postsData.data.posts.reverse()
 
