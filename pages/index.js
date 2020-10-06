@@ -5,12 +5,8 @@ import {
   Container,
   Row,
   Col,
-  Card,
-  CardBody,
   Button,
   Badge,
-  CardFooter,
-  Tooltip,
   Form,
   FormGroup,
   FormInput,
@@ -18,7 +14,9 @@ import {
 } from 'shards-react'
 import PageTitle from '../components/common/PageTitle'
 import PageMetadata from '../components/common/Helmet'
+import PostCard from '../components/PostCard'
 import http from '../services/Apicalls'
+import { trimmedPostBody } from '../utils/trimmedPostBody'
 
 function BlogPosts({ posts }) {
   const [reader, setReader] = useState({
@@ -47,16 +45,6 @@ function BlogPosts({ posts }) {
   const popularPosts = postsArray
     .sort((a, b) => b.comments.length - a.comments.length)
     .slice(0, 3)
-
-  const [postToggleOpen, setPostToggleOpen] = useState(postIdList)
-  const toggleUniqueTooltip = (tooltipId) => {
-    const data = [...postToggleOpen]
-    data[tooltipId] = {
-      ...data[tooltipId],
-      tooltipOpen: !data[tooltipId].tooltipOpen,
-    }
-    setPostToggleOpen(data)
-  }
 
   const onChange = (e) => {
     setReader({
@@ -104,18 +92,6 @@ function BlogPosts({ posts }) {
       })
   }
 
-  const trimmedPostBody = (postBody, maxChar) => {
-    // const maxChar = 150
-    if (postBody.length > maxChar) {
-      postBody = postBody.substring(0, maxChar)
-      postBody = `${postBody.substring(
-        0,
-        Math.min(postBody.length, postBody.lastIndexOf(' '))
-      )} . . .`
-    }
-    return postBody
-  }
-
   return (
     <Container fluid className='main-content-container px-4'>
       <PageMetadata title='Home' />
@@ -131,49 +107,12 @@ function BlogPosts({ posts }) {
         <Col md='9' lg='9'>
           <Row>
             {posts.map((post, idx) => (
-              <Col lg='6' md='6' sm='12' className='mb-4' key={post._id}>
-                <Link href={`/post/${post.slug}`} as={`/post/${post.slug}`}>
-                  <a className='text-fiord-blue'>
-                    <Card small className='card-post card-post--1'>
-                      <div
-                        className='card-post__image'
-                        style={{ backgroundImage: `url(${post.postImage})` }}
-                      >
-                        <Badge pill className='card-post__category bg-primary'>
-                          {post.category}
-                        </Badge>
-                      </div>
-                      <CardBody id={`post-${post._id}`}>
-                        <h4 className='card-title'>
-                          {trimmedPostBody(post.title, 50)}
-                        </h4>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: trimmedPostBody(post.body, 120),
-                          }}
-                        />
-                      </CardBody>
-                      <Tooltip
-                        style={{
-                          minWidth: '320px',
-                          fontSize: '20px',
-                        }}
-                        // placement="bottom"
-                        open={postToggleOpen[idx].tooltipOpen}
-                        target={`#post-${post._id}`}
-                        toggle={() => toggleUniqueTooltip(idx)}
-                      >
-                        {post.title}
-                      </Tooltip>
-                      <CardFooter>
-                        <span className='text-muted'>
-                          {new Date(post.updatedAt).toDateString()}
-                        </span>
-                      </CardFooter>
-                    </Card>
-                  </a>
-                </Link>
-              </Col>
+              <PostCard
+                post={post}
+                key={post._id}
+                postIdList={postIdList}
+                idx={idx}
+              />
             ))}
           </Row>
         </Col>
