@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react"
+import Link from "next/link"
 import {
   Container,
   Row,
@@ -20,13 +20,13 @@ import { trimmedPostBody } from '../utils/trimmedPostBody'
 
 function BlogPosts({ posts }) {
   const [reader, setReader] = useState({
-    email: '',
+    email: "",
   })
   const [subscribedState, setSubscribedState] = useState({
     isSubmit: false,
     alert: false,
-    alertMessage: '',
-    alertColor: '',
+    alertMessage: "",
+    alertColor: "",
   })
 
   const postIdList = posts.map((post) => ({
@@ -59,18 +59,18 @@ function BlogPosts({ posts }) {
     })
     e.preventDefault()
     http
-      .post('/api/subscribers', reader)
+      .post("/api/subscribers", reader)
       .then((res) => {
         if (res.status === 201) {
           setSubscribedState({
             ...subscribedState,
             alert: true,
-            alertColor: 'success',
+            alertColor: "success",
             alertMessage: res.data.message,
           })
-          setReader({ email: '' })
+          setReader({ email: "" })
         } else {
-          let errorText = ''
+          let errorText = ""
           if (res.data.errors)
             res.data.errors.forEach((error) => {
               errorText += error.msg
@@ -79,7 +79,7 @@ function BlogPosts({ posts }) {
           setSubscribedState({
             ...subscribedState,
             alert: true,
-            alertColor: 'warning',
+            alertColor: "warning",
             alertMessage: errorMessage,
           })
         }
@@ -93,18 +93,18 @@ function BlogPosts({ posts }) {
   }
 
   return (
-    <Container fluid className='main-content-container px-4'>
-      <PageMetadata title='Home' />
-      <Row noGutters className='page-header py-4'>
+    <Container fluid className="main-content-container px-4">
+      <PageMetadata title="Home" />
+      <Row noGutters className="page-header py-4">
         <PageTitle
-          sm='4'
-          title='Blog Posts'
+          sm="4"
+          title="Blog Posts"
           // subtitle="Components"
-          className='text-sm-left'
+          className="text-sm-left"
         />
       </Row>
       <Row>
-        <Col md='9' lg='9'>
+        <Col md="9" lg="9">
           <Row>
             {posts.map((post, idx) => (
               <PostCard
@@ -116,11 +116,11 @@ function BlogPosts({ posts }) {
             ))}
           </Row>
         </Col>
-        <Col md='3' lg='3' className='my-2'>
+        <Col md="3" lg="3" className="my-2">
           <PageTitle
-            sm='12'
-            title='Blog Category'
-            className='text-sm-left text-uppercase'
+            sm="12"
+            title="Blog Category"
+            className="text-sm-left text-uppercase"
           />
           <hr />
           {category.map((item) => (
@@ -129,9 +129,9 @@ function BlogPosts({ posts }) {
               href={`/category/${item}`}
               as={`/category/${item}`}
             >
-              <a className='text-fiord-blue'>
+              <a className="text-fiord-blue">
                 <Badge
-                  className='mx-1 my-1 text-uppercase font-weight-bold lead'
+                  className="mx-1 my-1 text-uppercase font-weight-bold lead"
                   // href="#"
                   // key={idx}
                   // outline
@@ -142,19 +142,19 @@ function BlogPosts({ posts }) {
             </Link>
           ))}
           <PageTitle
-            sm='12'
-            title='Tags'
-            className='text-sm-left text-uppercase my-5'
+            sm="12"
+            title="Tags"
+            className="text-sm-left text-uppercase my-5"
           />
           <hr />
           {tags.map((item) => (
             <Link key={item} href={`/tags/${item}`} as={`/tags/${item}`}>
-              <a className='text-fiord-blue'>
+              <a className="text-fiord-blue">
                 {/* {trimmedPostBody(post.title, 50)} */}
                 <Badge
-                  className='mx-1 my-1 text-uppercase'
+                  className="mx-1 my-1 text-uppercase"
                   // href="#"
-                  theme='info'
+                  theme="info"
                   // key={idx}
                   outline
                 >
@@ -164,25 +164,25 @@ function BlogPosts({ posts }) {
             </Link>
           ))}
           <PageTitle
-            sm='12'
-            title='Popular Posts'
-            className='text-sm-left text-uppercase my-5'
+            sm="12"
+            title="Popular Posts"
+            className="text-sm-left text-uppercase my-5"
           />
           <hr />
           {popularPosts.map((post) => (
-            <div key={post._id} className='mb-5'>
+            <div key={post._id} className="mb-5">
               <img
                 src={post.postImage}
                 style={{
-                  objectFit: 'cover',
-                  maxWidth: '100%',
-                  height: '100px',
+                  objectFit: "cover",
+                  maxWidth: "100%",
+                  height: "100px",
                 }}
-                alt='post'
+                alt="post"
               />
-              <h4 className=''>
+              <h4 className="">
                 <Link href={`/post/${post.slug}`} as={`/post/${post.slug}`}>
-                  <a className='text-decoration-none'>
+                  <a className="text-decoration-none">
                     {trimmedPostBody(post.title, 20)}
                   </a>
                 </Link>
@@ -191,9 +191,9 @@ function BlogPosts({ posts }) {
             </div>
           ))}
           <PageTitle
-            sm='12'
+            sm="12"
             subtitle="Follow Meedah's Marbles via Email"
-            className='text-sm-left text-uppercase my-5 mx-0 px-0'
+            className="text-sm-left text-uppercase my-5 mx-0 px-0"
           />
           <hr />
           <Form>
@@ -203,19 +203,19 @@ function BlogPosts({ posts }) {
               </Alert>
             ) : null}
             <FormGroup>
-              <label htmlFor='#username'>Email</label>
+              <label htmlFor="#username">Email</label>
               <FormInput
-                id='#username'
-                name='email'
+                id="#username"
+                name="email"
                 onChange={onChange}
                 value={reader.email}
                 required
-                placeholder='ajayi@gmail.com'
+                placeholder="ajayi@gmail.com"
               />
             </FormGroup>
             <Button
               outline
-              theme='warning'
+              theme="warning"
               onClick={addSubscriber}
               disabled={subscribedState.isSubmit}
             >
@@ -230,7 +230,7 @@ function BlogPosts({ posts }) {
 }
 
 export async function getServerSideProps() {
-  const res = await http.get('/api/post')
+  const res = await http.get("/api/post")
   const posts = await res.data.posts.reverse()
 
   // By returning { props: posts }, the Blog component
