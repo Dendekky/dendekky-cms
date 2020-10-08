@@ -1,4 +1,4 @@
-# MM CMS Client
+# CMS Client App
 
 <br />
 
