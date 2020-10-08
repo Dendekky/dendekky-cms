@@ -224,12 +224,9 @@ function TaggedPosts({ posts, tag, allPosts }) {
 }
 
 // export async function getStaticPaths() {
-//   // Call an external API endpoint to get posts
 //   const res = await http.get(`/api/post`)
 //   const posts = await res.data.posts
 
-//   // Get the paths we want to pre-render based on posts
-//   // const paths = posts.map((post) => `/post/${post._id}`)
 //   const validTags = []
 //   const tags = posts
 //     .map((item) => item.tags)
@@ -246,8 +243,7 @@ function TaggedPosts({ posts, tag, allPosts }) {
 //   const paths = validTags.map((tag) => ({
 //     params: { tag },
 //   }))
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: false } means other routes should 404.
+
 //   return { paths, fallback: false }
 // }
 
