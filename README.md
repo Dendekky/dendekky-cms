@@ -33,11 +33,11 @@
 ## :camera_flash: Screenshots
 |                           |                            |
 | :----------------------------------: | :----------------------------------: |
-| ![Blog-Analytics](assets/mm-featured-image-9.png) | ![Blog-Post-Comments](assets/mm-featured-image-10.png) |
-| ![Blog-Dashboard](assets/mm-featured-image-3.png) | ![Blog-Posts](assets/mm-featured-image-2.png) |
-| ![Blog-Admin-Table-2](assets/mm-featured-image-1.png) | ![Add-New-Post](assets/mm-featured-image-4.png) |
-| ![Discussion-comments](assets/mm-featured-image-5.png) | ![Blog-Post](assets/mm-featured-image-6.png) |
-| ![Draft-edit](assets/mm-featured-image-7.png) | ![User-Profile](assets/mm-featured-image-8.png) |
+| ![Blog-Analytics](assets/mm-featured-9.png) | ![Blog-Post-Comments](assets/mm-featured-10.png) |
+| ![Blog-Dashboard](assets/mm-featured-3.png) | ![Blog-Posts](assets/mm-featured-2.png) |
+| ![Blog-Admin-Table-2](assets/mm-featured-1.png) | ![Add-New-Post](assets/mm-featured-4.png) |
+| ![Discussion-comments](assets/mm-featured-5.png) | ![Blog-Post](assets/mm-featured-6.png) |
+| ![Draft-edit](assets/mm-featured-7.png) | ![User-Profile](assets/mm-featured-8.png) |
 
 
 ## :snail: TODO
@@ -78,7 +78,6 @@ See package.json for project dependencies and devDependencies
 ## :star: Contributing
 This project was started with the intention of facilitating learning and that hasn't changed. Contributons, comments, and PRs are all welcome.
 Consider running the [CMS SERVER REST API project](https://github.com/Dendekky/mm-server) locally during development.
-You can check out the [CMS client admin](https://github.com/Dendekky/mm-client). In the future, the admin app and and this will be merged.
 
 ## :bearded_person: Author
-[Ibrahim Adeniyi](https://dendekky.me)
+[Ibrahim Adeniyi](https://dendekky.netlify.app)
