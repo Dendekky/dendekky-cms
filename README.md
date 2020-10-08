@@ -30,15 +30,15 @@
 
 - Admin can track analytics on the blog's dashboard
 
-<!-- ## :camera_flash: Screenshots
+## :camera_flash: Screenshots
 |                           |                            |
 | :----------------------------------: | :----------------------------------: |
-| ![Blog-Analytics](assets/mm-featured-9.png) | ![Blog-Post-Comments](assets/mm-featured-10.png) |
-| ![Blog-Dashboard](assets/mm-featured-3.png) | ![Blog-Posts](assets/mm-featured-2.png) |
-| ![Blog-Admin-Table-2](assets/mm-featured-1.png) | ![Add-New-Post](assets/mm-featured-4.png) |
-| ![Discussion-comments](assets/mm-featured-5.png) | ![Blog-Post](assets/mm-featured-6.png) |
-| ![Draft-edit](assets/mm-featured-7.png) | ![User-Profile](assets/mm-featured-8.png) |
- -->
+| ![Blog-Analytics](assets/images/mm-featured-9.png) | ![Blog-Post-Comments](assets/images/mm-featured-10.png) |
+| ![Blog-Dashboard](assets/images/mm-featured-3.png) | ![Blog-Posts](assets/images/mm-featured-2.png) |
+| ![Blog-Admin-Table-2](assets/images/mm-featured-1.png) | ![Add-New-Post](assets/images/mm-featured-4.png) |
+| ![Discussion-comments](assets/images/mm-featured-5.png) | ![Blog-Post](assets/images/mm-featured-6.png) |
+| ![Draft-edit](assets/images/mm-featured-7.png) | ![User-Profile](assets/images/mm-featured-8.png) |
+
 
 ## :snail: TODO
 
@@ -49,7 +49,7 @@
 - Create a contact form 
 
 ### :classical_building: Project Structure
-- This project is bootstrapped using [Create React App](https://github.com/facebook/create-react-app) and [Shards React](https://github.com/designrevision/shards-react)
+- This project is bootstrapped using [Create Next App](https://nextjs.org) and [Shards React](https://github.com/designrevision/shards-react)
 
 ## Requirements
 
