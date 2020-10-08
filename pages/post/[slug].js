@@ -384,11 +384,11 @@ function ViewPost({ post }) {
 }
 
 export async function getServerSideProps({ params: { slug } }) {
-   // Call an external API endpoint to get posts
-   const res = await http.get(`/api/post/${slug}`)
-    const post = res.data
+  // Call an external API endpoint to get posts
+  const res = await http.get(`/api/post/${slug}`)
+  const post = res.data
 
- // By returning { props: posts }, the Blog component
+  // By returning { props: posts }, the Blog component
   // will receive `post` as a prop at build time
   return {
     props: {
@@ -396,6 +396,5 @@ export async function getServerSideProps({ params: { slug } }) {
     },
   }
 }
-
 
 export default ViewPost

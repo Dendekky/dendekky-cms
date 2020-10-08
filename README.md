@@ -1,4 +1,4 @@
-# MM CMS Client
+# CMS Client
 
 <br />
 
@@ -33,8 +33,8 @@
 ## :camera_flash: Screenshots
 |                           |                            |
 | :----------------------------------: | :----------------------------------: |
-| ![Blog-Analytics](assets/mm-featured-image-9.png) | ![Blog-Admin-Analytics](assets/mm-featured-image-10.png) |
-| ![Blog-Dashboard](assets/mm-featured-image-3.png) | ![Blog-Admin-Table](assets/mm-featured-image-2.png) |
+| ![Blog-Analytics](assets/mm-featured-image-9.png) | ![Blog-Post-Comments](assets/mm-featured-image-10.png) |
+| ![Blog-Dashboard](assets/mm-featured-image-3.png) | ![Blog-Posts](assets/mm-featured-image-2.png) |
 | ![Blog-Admin-Table-2](assets/mm-featured-image-1.png) | ![Add-New-Post](assets/mm-featured-image-4.png) |
 | ![Discussion-comments](assets/mm-featured-image-5.png) | ![Blog-Post](assets/mm-featured-image-6.png) |
 | ![Draft-edit](assets/mm-featured-image-7.png) | ![User-Profile](assets/mm-featured-image-8.png) |
@@ -45,7 +45,6 @@
 - Admin should be able to moderate, and delete comments
 - Admin should be able to view the numbers and list of subscribers
 - Admin should be able to filter by tags
-- Add more react quill features
 - Include schedule post functionality
 - Create a contact form 
 
