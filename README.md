@@ -49,7 +49,7 @@
 - Create a contact form 
 
 ### :classical_building: Project Structure
-- This project is bootstrapped using [Create React App](https://github.com/facebook/create-react-app) and [Shards React](https://github.com/designrevision/shards-react)
+- This project is bootstrapped using [Create Next App](https://nextjs.org) and [Shards React](https://github.com/designrevision/shards-react)
 
 ## Requirements
 
