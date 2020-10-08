@@ -78,7 +78,6 @@ See package.json for project dependencies and devDependencies
 ## :star: Contributing
 This project was started with the intention of facilitating learning and that hasn't changed. Contributons, comments, and PRs are all welcome.
 Consider running the [CMS SERVER REST API project](https://github.com/Dendekky/mm-server) locally during development.
-You can check out the [CMS client admin](https://github.com/Dendekky/mm-client). In the future, the admin app and and this will be merged.
 
 ## :bearded_person: Author
-[Ibrahim Adeniyi](https://dendekky.me)
+[Ibrahim Adeniyi](https://dendekky.netlify.app)
