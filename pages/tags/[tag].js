@@ -223,31 +223,31 @@ function TaggedPosts({ posts, tag, allPosts }) {
   )
 }
 
-// export async function getStaticPaths() {
-//   const res = await http.get(`/api/post`)
-//   const posts = await res.data.posts
+export async function getStaticPaths() {
+  const res = await http.get(`/api/post`)
+  const posts = await res.data.posts
 
-//   const validTags = []
-//   const tags = posts
-//     .map((item) => item.tags)
-//     .flat()
-//     .filter((v, i, self) => i == self.indexOf(v))
+  const validTags = []
+  const tags = posts
+    .map((item) => item.tags)
+    .flat()
+    .filter((v, i, self) => i == self.indexOf(v))
 
-//   // To avoid error from empty or null tags when prerendering
-//   tags.forEach((tag) => {
-//     if (tag.length > 0) {
-//       validTags.push(tag)
-//     }
-//   })
+  // To avoid error from empty or null tags when prerendering
+  tags.forEach((tag) => {
+    if (tag.length > 0) {
+      validTags.push(tag.toLowerCase())
+    }
+  })
 
-//   const paths = validTags.map((tag) => ({
-//     params: { tag },
-//   }))
+  const paths = validTags.map((tag) => ({
+    params: { tag },
+  }))
 
-//   return { paths, fallback: false }
-// }
+  return { paths, fallback: false }
+}
 
-export async function getServerSideProps({ params: { tag } }) {
+export async function getStaticProps({ params: { tag } }) {
   // Call an external API endpoint to get posts
   const res = await http.get(`/api/posts/tags/${tag}`)
   const postsData = await http.get("/api/post")
