@@ -20,7 +20,7 @@
 
 - Admin can sign in
 
-- Admin can receive notifications when readers comment
+- Admin can receive notifications when readers comment on a post
 
 - Admin can create, read, edit and delete drafts
 
@@ -34,8 +34,8 @@
 |                           |                            |
 | :----------------------------------: | :----------------------------------: |
 | ![Blog-Analytics](assets/images/mm-featured-9.png) | ![Blog-Post-Comments](assets/images/mm-featured-10.png) |
-| ![Blog-Dashboard](assets/images/mm-featured-3.png) | ![Blog-Posts](assets/images/mm-featured-2.png) |
-| ![Blog-Admin-Table-2](assets/images/mm-featured-1.png) | ![Add-New-Post](assets/images/mm-featured-4.png) |
+| ![Blog-Page](assets/images/mm-featured-3.png) | ![Blog-Posts](assets/images/mm-featured-2.png) |
+| ![Blog-Admin-Table](assets/images/mm-featured-1.png) | ![Add-New-Post](assets/images/mm-featured-4.png) |
 | ![Discussion-comments](assets/images/mm-featured-5.png) | ![Blog-Post](assets/images/mm-featured-6.png) |
 | ![Draft-edit](assets/images/mm-featured-7.png) | ![User-Profile](assets/images/mm-featured-8.png) |
 
@@ -77,7 +77,7 @@ See package.json for project dependencies and devDependencies
 
 ## :star: Contributing
 This project was started with the intention of facilitating learning and that hasn't changed. Contributons, comments, and PRs are all welcome.
-Consider running the [CMS SERVER REST API project](https://github.com/Dendekky/mm-server) locally during development.
+Consider running the [CMS SERVER REST API project](https://github.com/Dendekky/cms-server) locally during development.
 
 ## :bearded_person: Author
 [Ibrahim Adeniyi](https://dendekky.netlify.app)
