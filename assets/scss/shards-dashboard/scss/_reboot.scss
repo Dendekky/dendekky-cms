@@ -16,10 +16,12 @@ html {
 
 // Body
 body {
-  background: $body-background;
+  // background: $body-background;
+  color: #242424;
   font-size: 15px;
   font-weight: 500;
-  font-family: "Alegreya", serif;
+  font-family: "Lato", sans-serif;
+  line-height: 30px;
 
   @media (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {

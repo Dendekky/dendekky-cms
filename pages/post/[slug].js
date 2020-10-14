@@ -180,13 +180,6 @@ function ViewPost({ post }) {
                 />
                 <div
                   className="post-content"
-                  style={{
-                    fontSize: "18px",
-                    hyphens: "auto",
-                    textAlign: "justify",
-                    width: "100%",
-                    // objectFit: "cover",
-                  }}
                   dangerouslySetInnerHTML={{ __html: post.body }}
                 />
                 <hr />
