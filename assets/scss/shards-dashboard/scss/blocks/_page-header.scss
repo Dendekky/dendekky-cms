@@ -2,6 +2,7 @@
 //
 // Used across the UI kit to emphasize each page by using a title
 // and optional description.
+$page-title-color: #242424;
 
 .page-header {
   .page-title {
@@ -10,6 +11,7 @@
     line-height: $page-title-line-height;
     margin: $page-title-margin;
     padding: $page-title-padding;
+    color: $page-title-color;
 
     @include media-breakpoint-down(sm) {
       // font-size: $page-title-sm-font-size;
@@ -20,6 +22,7 @@
     letter-spacing: $page-subtitle-letter-spacing;
     color: $page-subtitle-color;
     font-size: $page-subtitle-font-size;
+    color: $page-title-color;
 
     @include media-breakpoint-down(sm) {
       font-size: $page-subtitle-font-size-sm;
