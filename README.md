@@ -47,6 +47,7 @@
 - Admin should be able to filter by tags
 - Include schedule post functionality
 - Create a contact form 
+- Include pagination
 
 ### :classical_building: Project Structure
 - This project is bootstrapped using [Create Next App](https://nextjs.org) and [Shards React](https://github.com/designrevision/shards-react)
