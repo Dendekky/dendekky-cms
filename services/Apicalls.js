@@ -2,7 +2,7 @@ import Axios from "axios"
 import { getCookie } from "./Cookie"
 
 export default new (class http {
-  API_URL = "https://marblesofhameedah.herokuapp.com"
+  API_URL = "https://app.yahnnova.com"
   // API_URL = "http://localhost:5000"
 
   AUTHTOKEN = getCookie("token")
