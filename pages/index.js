@@ -1,5 +1,5 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import {
   Container,
@@ -28,10 +28,10 @@ function BlogPosts({ posts }) {
     alertMessage: "",
     alertColor: "",
   })
-  useEffect(() => {
-    const fetchData = () => http.get("/api/")
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   const fetchData = () => http.get("/api/")
+  //   fetchData()
+  // }, [])
 
   const postIdList = posts.map((post) => ({
     id: post._id,
@@ -233,7 +233,7 @@ function BlogPosts({ posts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await http.get("/api/post")
   const posts = await res.data.posts.reverse()
 
