@@ -60,7 +60,7 @@ class Comment extends Component {
           <div className="comment-user">
             <img
               alt={`user-${comment.name}`}
-              src={`http://marblesofhameedah.herokuapp.com/api/avatars/20/${comment.name}`}
+              src={`https://marblesofhameedah.herokuapp.com/api/avatars/20/${comment.name}`}
             />
             <div>{comment.name}</div>
           </div>
